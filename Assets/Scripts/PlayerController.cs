@@ -1,25 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector] public PlayerInputActions input;
+    public Tilemap groundTilemap;
+    public Tilemap groundOverlayTilemap;
+
     public float moveSpeed = 5f;
     public Transform movePoint;
 
     public LayerMask whatStopsMovement;
+
+    private Tile playerCurrentTile;
+    private Sprite flatSnowSprite;
     
     void Start()
     {
         movePoint.parent = null;
+        flatSnowSprite =  Resources.Load<Sprite>("GroundSprites/darkbluegreen.png");
     }
 
     void Awake()
     {
         input = new PlayerInputActions();
         input.Enable();
+
+        playerCurrentTile = groundTilemap.GetTile<Tile>(Vector3Int.FloorToInt(movePoint.position));
     }
 
     private void OnDisable()
@@ -65,5 +76,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+        //playerCurrentTile = groundTilemap.GetTile<Tile>(Vector3Int.FloorToInt(movePoint.position));
+        groundOverlayTilemap.SetTile(Vector3Int.FloorToInt(movePoint.position), null);
     }
 }
