@@ -21,7 +21,7 @@ public class HighScoreTest : MonoBehaviour
             delay -= Time.deltaTime;
             if (delay < 0) {
                 // how to submit a new possible score (php file checks if it is a real high score)
-                HS.SubmitHighScore(this, "Troy Himself", Random.Range(554, 555));
+                //HS.SubmitHighScore(this, "Troy Himself", Random.Range(554, 555));
             }
         }
     }
