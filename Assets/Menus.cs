@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class Menus : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class Menus : MonoBehaviour
 	public GameObject OptionsMenu;
 	public GameObject VictoryMenu;
 	public GameObject GameOverMenu;
+	public TMP_Text MusicButton;
+	public TMP_Text SoundButton;
 	
     // Start is called before the first frame update
     void Start()
@@ -53,17 +57,30 @@ public class Menus : MonoBehaviour
 	
 	// restart the game
 	public void RestartButtonClicked(){
-		
+		if(GameOverMenu.activeSelf){
+			GameOverMenu.SetActive(false);
+		} else if (VictoryMenu.activeSelf) {
+			VictoryMenu.SetActive(false);
+		}
+		StartButtonClicked();
 	}
 	
 	// enable/disable the game music
 	public void GameMusicButtonClicked(){
-		
+		if(MusicButton.text == "Off"){
+			MusicButton.text = "On";
+		} else {
+			MusicButton.text = "Off";
+		}
 	}
 	
 	// enable/disable the game sounds
 	public void GameSoundsButtonClicked(){
-		
+		if(SoundButton.text == "Off"){
+			SoundButton.text = "On";
+		} else {
+			SoundButton.text = "Off";
+		}
 	}
 	
 }
