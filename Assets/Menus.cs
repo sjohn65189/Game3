@@ -31,7 +31,10 @@ public class Menus : MonoBehaviour
 	
 	// quit the game
 	public void QuitButtonClicked(){
-		
+		// if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+		// endif 
+        Application.Quit();
 	}
 	
 	// return to the Main menu
