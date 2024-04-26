@@ -38,16 +38,16 @@ public class PlayerController : MonoBehaviour
             if(input.PlayerActions.MoveUp.IsPressed())
             {
                 // If no object in front of us, move
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 0f, 1f), .2f, whatStopsMovement))
+                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), .2f, whatStopsMovement))
                 {
-                    movePoint.position += new Vector3(0f, 0f, 1f);
+                    movePoint.position += new Vector3(0f, 1f, 0f);
                 }
             }
             else if(input.PlayerActions.MoveDown.IsPressed())
             {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 0f, -1f), .2f, whatStopsMovement))
+                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .2f, whatStopsMovement))
                 {
-                    movePoint.position += new Vector3(0f, 0f, -1f);
+                    movePoint.position += new Vector3(0f, -1f, 0f);
                 }
             }
             else if(input.PlayerActions.MoveLeft.IsPressed())
