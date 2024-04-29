@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     private HealthBarUI healthBar;
     private Image healthBarImage;
     private Color targetColor;
-    private bool isColorChanging = false;
+//    private bool isColorChanging = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,13 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("m")) {
+            SetHealth(-20f);
+        }
+
+        if (Input.GetKeyDown("n")) {
+            SetHealth(20f);
+        }
         
     }
 
@@ -33,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         Health = Mathf.Clamp(Health, 0, MaxHealth);
         healthBar.SetHealth(Health);
     }
-    
+/*    
     IEnumerator ChangeHealthBarColor(Color targetColor)
     {
         isColorChanging = true;
@@ -51,4 +57,5 @@ public class PlayerHealth : MonoBehaviour
         healthBarImage.color = targetColor; // Ensure final color is set accurately
         isColorChanging = false;
     }
+*/
 }
