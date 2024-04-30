@@ -30,7 +30,7 @@ public class BridgeSystem : MonoBehaviour
         // Check if the "G" key is pressed and the collision flag is set
         if (Input.GetKeyDown(KeyCode.G) && hasCollided)
         {
-            Debug.Log("G is pressed and collided");
+            
             MoveToTargetTile();
 
             // Rebuild the NavMesh after moving the item
@@ -46,7 +46,7 @@ public class BridgeSystem : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && !hasCollided)
         {
             hasCollided=true;
-            Debug.Log("has collided");
+            
         }
     }
 
