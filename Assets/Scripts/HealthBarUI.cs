@@ -25,6 +25,8 @@ public class HealthBarUI : MonoBehaviour
 
     public void SetHealth(float health)
     {
+        healthBarMaterial.SetFloat("_Health", health/100);
+/*
         Health = health;
         float newWidth = (Health / MaxHealth) * Width;
 
@@ -33,6 +35,7 @@ public class HealthBarUI : MonoBehaviour
         // Adjust color transparency based on health
         float healthPercentage = Health / MaxHealth;
         healthBarMaterial.SetFloat("_Health", healthPercentage);
+*/
     }
 }
 

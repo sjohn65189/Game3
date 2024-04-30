@@ -25,11 +25,11 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown("m")) {
-            SetHealth(-20f);
+            SetHealth(-25f);
         }
 
         if (Input.GetKeyDown("n")) {
-            SetHealth(20f);
+            SetHealth(25f);
         }
         
     }
