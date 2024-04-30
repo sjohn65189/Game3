@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private HealthBarUI healthBar;
     private Image healthBarImage;
-    private Color targetColor;
+//    private Color targetColor;
 //    private bool isColorChanging = false;
 
     // Start is called before the first frame update
