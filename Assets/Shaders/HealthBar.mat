@@ -25,7 +25,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Health: 1
+    - _Health: 0.25
     m_Colors:
     - _HighColor: {r: 0.08810955, g: 0.21939044, b: 0.8490566, a: 1}
     - _LowColor: {r: 0.376796, g: 0.4711712, b: 0.7056604, a: 1}
