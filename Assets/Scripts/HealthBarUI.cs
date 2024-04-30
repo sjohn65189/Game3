@@ -10,10 +10,12 @@ public class HealthBarUI : MonoBehaviour
     [SerializeField]
     private RectTransform healthBar;
     private Image healthBarImage;
+    private Material healthBarMaterial;
 
     private void Awake()
     {
         healthBarImage = healthBar.GetComponent<Image>();
+        healthBarMaterial = healthBarImage.material;
     }
 
     public void SetMaxHealth(float maxHealth)
@@ -30,7 +32,7 @@ public class HealthBarUI : MonoBehaviour
 
         // Adjust color transparency based on health
         float healthPercentage = Health / MaxHealth;
-        //healthBarImage.color = Color.Lerp(HighSeverityColor, LowSeverityColor, healthPercentage);
+        healthBarMaterial.SetFloat("_Health", healthPercentage);
     }
 }
 

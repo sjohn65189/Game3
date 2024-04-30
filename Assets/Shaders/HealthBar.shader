@@ -36,10 +36,10 @@ Shader "HealthBarShader/HealthBar"
             //    UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
             };
-/*
+
             sampler2D _MainTex;
             float4 _MainTex_ST;
-*/
+
             float _Health;
             fixed4 _LowColor;
             fixed4 _HighColor;
