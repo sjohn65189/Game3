@@ -11,6 +11,8 @@ public class Menus : MonoBehaviour
 	public GameObject OptionsMenu;
 	public GameObject VictoryMenu;
 	public GameObject GameOverMenu;
+	public GameObject Game; 
+	public GameObject Player;
 	public TMP_Text MusicButton;
 	public TMP_Text SoundButton;
 	
@@ -20,11 +22,14 @@ public class Menus : MonoBehaviour
         OptionsMenu.SetActive(false);
 		VictoryMenu.SetActive(false);
 		GameOverMenu.SetActive(false);
+		Game.SetActive(false);
     }
 
 	// run the game
     public void StartButtonClicked(){
 		MainMenu.SetActive(false);
+		Game.SetActive(true);
+		Player.SetActive(true);
 	}
 	
 	// open the options menu
