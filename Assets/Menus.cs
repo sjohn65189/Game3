@@ -24,7 +24,7 @@ public class Menus : MonoBehaviour
 
 	// run the game
     public void StartButtonClicked(){
-		
+		MainMenu.SetActive(false);
 	}
 	
 	// open the options menu
