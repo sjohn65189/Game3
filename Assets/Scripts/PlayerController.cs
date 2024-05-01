@@ -18,22 +18,27 @@ public class PlayerController : MonoBehaviour
 	public Transform movePoint;
 
 	public LayerMask whatStopsMovement;
+	[HideInInspector] public List<Vector3> wanderPoints; // This list of points is what the yeti follows when chasing the player
 
 	[HideInInspector]public Tile playerCurrentTile;
 	private Sprite flatSnowSprite;
 	
 	void Start()
 	{
+		navSurface.hideEditorLogs = true;
 		movePoint.parent = null;
 		flatSnowSprite =  Resources.Load<Sprite>("GroundSprites/darkbluegreen.png");
 	}
 
 	void Awake()
 	{
+		wanderPoints = new List<Vector3>();
 		input = new PlayerInputActions();
 		input.Enable();
 
 		playerCurrentTile = groundTilemap.GetTile<Tile>(Vector3Int.FloorToInt(movePoint.position));
+		
+		StartCoroutine(DropWanderPoints());
 	}
 
 	private void OnDisable()
@@ -95,5 +100,25 @@ public class PlayerController : MonoBehaviour
 				navSurface.BuildNavMesh();
 			}
 		}
+	}
+
+	IEnumerator DropWanderPoints()
+	{
+		while (true)
+		{
+			if (!wanderPoints.Contains(movePoint.transform.position)) 
+			{
+				// Append the current position to the wanderPoints list
+				wanderPoints.Add(movePoint.transform.position);
+			}
+
+			// Wait for 5 seconds
+			yield return new WaitForSeconds(5f);
+		}
+	}
+	
+	public void ClearWanderPoints() 
+	{
+		wanderPoints = new List<Vector3>();
 	}
 }
