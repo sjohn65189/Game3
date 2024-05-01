@@ -97,9 +97,16 @@ public class PlayerController : MonoBehaviour
 			if(groundOverlayTilemap.GetTile<Tile>(Vector3Int.FloorToInt(movePoint.position)) != null) 
 			{
 				groundOverlayTilemap.SetTile(Vector3Int.FloorToInt(movePoint.position), null);
-				navSurface.BuildNavMesh();
+				StartCoroutine(RenderNavMesh());
 			}
 		}
+	}
+	
+	IEnumerator RenderNavMesh()
+	{
+		// Change 2D bounds to be around player position
+		navSurface.BuildNavMesh();
+		yield return null;
 	}
 
 	IEnumerator DropWanderPoints()

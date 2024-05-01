@@ -13,23 +13,27 @@ public class Menus : MonoBehaviour
 	public GameObject GameOverMenu;
 	public GameObject Game; 
 	public GameObject Player;
+	public GameObject BridgePieces;
+	public GameObject Camera;
 	public TMP_Text MusicButton;
 	public TMP_Text SoundButton;
 	
-    // Start is called before the first frame update
-    void Start()
-    {
-        OptionsMenu.SetActive(false);
+	// Start is called before the first frame update
+	void Start()
+	{
+		OptionsMenu.SetActive(false);
 		VictoryMenu.SetActive(false);
 		GameOverMenu.SetActive(false);
 		Game.SetActive(false);
-    }
+	}
 
 	// run the game
-    public void StartButtonClicked(){
+	public void StartButtonClicked(){
 		MainMenu.SetActive(false);
 		Game.SetActive(true);
 		Player.SetActive(true);
+		BridgePieces.SetActive(true);
+		//Camera.transform.SetParent(Player.transform);
 	}
 	
 	// open the options menu
@@ -41,9 +45,9 @@ public class Menus : MonoBehaviour
 	// quit the game
 	public void QuitButtonClicked(){
 		// if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+		UnityEditor.EditorApplication.isPlaying = false;
 		// endif 
-        Application.Quit();
+		Application.Quit();
 	}
 	
 	// return to the Main menu
