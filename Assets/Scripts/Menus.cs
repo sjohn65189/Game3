@@ -17,6 +17,8 @@ public class Menus : MonoBehaviour
 	public GameObject Camera;
 	public TMP_Text MusicButton;
 	public TMP_Text SoundButton;
+
+	public AudioSource Main_Music;
 	
 	// Start is called before the first frame update
 	void Start()
@@ -25,6 +27,7 @@ public class Menus : MonoBehaviour
 		VictoryMenu.SetActive(false);
 		GameOverMenu.SetActive(false);
 		Game.SetActive(false);
+		Main_Music.Stop();
 	}
 
 	// run the game
@@ -34,6 +37,8 @@ public class Menus : MonoBehaviour
 		Player.SetActive(true);
 		BridgePieces.SetActive(true);
 		//Camera.transform.SetParent(Player.transform);
+
+		Main_Music.Play();
 	}
 	
 	// open the options menu
@@ -78,8 +83,10 @@ public class Menus : MonoBehaviour
 	public void GameMusicButtonClicked(){
 		if(MusicButton.text == "Off"){
 			MusicButton.text = "On";
+			Main_Music.Play();
 		} else {
 			MusicButton.text = "Off";
+			Main_Music.Stop();
 		}
 	}
 	
