@@ -8,9 +8,14 @@ public class Yeti : MonoBehaviour
 {
 	public GameObject player;
 	public LayerMask snowLayer;
+	public AudioClip yetiSound;
+	public AudioSource audioSource;
 	
 	public float moveSpeed = 6f;
 	public Transform movePoint;
+
+	public float yetiSoundDelay = 3.0f;
+	private bool canPlaySound = true;
 	
 	NavMeshAgent agent;
 	
@@ -32,7 +37,13 @@ public class Yeti : MonoBehaviour
 		agent.updateUpAxis = false;
 		
 		playerController = player.GetComponent<PlayerController>();
-	}
+
+        // Ensure AudioSource component is assigned
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
 	// Update is called once per frame
 	void Update()
@@ -49,7 +60,13 @@ public class Yeti : MonoBehaviour
 		
 		hasReachedLastPosition = false;
 		agent.SetDestination(target);
-	}
+
+        // Play the Yeti sound with delay
+        if (canSeePlayer && canPlaySound && yetiSound != null && audioSource != null)
+        {
+            StartCoroutine(PlaySoundWithDelay(yetiSoundDelay));
+        }
+    }
 
 	void FixedUpdate() 
 	{
@@ -108,4 +125,14 @@ public class Yeti : MonoBehaviour
 		
 		return result;
 	}
+
+    IEnumerator PlaySoundWithDelay(float delay)
+    {
+        canPlaySound = false;
+        yield return new WaitForSeconds(delay);
+        audioSource.clip = yetiSound;
+        audioSource.Play();
+        yield return new WaitForSeconds(audioSource.clip.length);
+        canPlaySound = true;
+    }
 }

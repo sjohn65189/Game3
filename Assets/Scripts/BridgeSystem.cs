@@ -41,6 +41,8 @@ public class BridgeSystem : MonoBehaviour
                 audioSource.Play();
             }
             MoveToTargetTile();
+            hasCollided=false;
+
 
             // Rebuild the NavMesh after moving the item
             if (navMeshSurface != null)
