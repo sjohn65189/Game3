@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
 	public float moveSpeed = 5f;
 	public Transform movePoint;
 
+	public AudioClip snowStepping;
+	public AudioSource audioSource;
+
 	public LayerMask whatStopsMovement;
 	[HideInInspector] public List<Vector3> wanderPoints; // This list of points is what the yeti follows when chasing the player
 
@@ -28,7 +31,17 @@ public class PlayerController : MonoBehaviour
 		navSurface.hideEditorLogs = true;
 		movePoint.parent = null;
 		flatSnowSprite =  Resources.Load<Sprite>("GroundSprites/darkbluegreen.png");
-	}
+
+        // Ensure the AudioSource component is assigned
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+        }
+    }
 
 	void Awake()
 	{
@@ -94,7 +107,8 @@ public class PlayerController : MonoBehaviour
 		//playerCurrentTile = groundTilemap.GetTile<Tile>(Vector3Int.FloorToInt(movePoint.position));
 		if (didMove) 
 		{
-			if(groundOverlayTilemap.GetTile<Tile>(Vector3Int.FloorToInt(movePoint.position)) != null) 
+            PlayFootstepSound();
+            if (groundOverlayTilemap.GetTile<Tile>(Vector3Int.FloorToInt(movePoint.position)) != null) 
 			{
 				groundOverlayTilemap.SetTile(Vector3Int.FloorToInt(movePoint.position), null);
 				StartCoroutine(RenderNavMesh());
@@ -102,6 +116,17 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	
+	void PlayFootstepSound()
+	{
+        // Check if footstep sound and audio source are assigned
+        if (snowStepping != null && audioSource != null)
+        {
+            // Assign footstep sound to audio source
+            audioSource.clip = snowStepping;
+            // Play the footstep sound
+            audioSource.Play();
+        }
+    }
 	IEnumerator RenderNavMesh()
 	{
 		// Change 2D bounds to be around player position
