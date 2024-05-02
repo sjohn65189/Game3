@@ -11,8 +11,10 @@ public class Menus : MonoBehaviour
 	public GameObject OptionsMenu;
 	public GameObject VictoryMenu;
 	public GameObject GameOverMenu;
-	public GameObject Game; 
+	public GameObject Game;
+	public GameObject Yeti;
 	public GameObject Player;
+	public PlayerController playerController;
 	public GameObject BridgePieces;
 	public GameObject Camera;
 
@@ -41,8 +43,10 @@ public class Menus : MonoBehaviour
 		MainMenu.SetActive(false);
 		Game.SetActive(true);
 		Player.SetActive(true);
+		Yeti.SetActive(true);
 		BridgePieces.SetActive(true);
 		Health.SetActive(true);
+		playerController.YetiStart(); // This delays the yeti chase
 		//Camera.transform.SetParent(Player.transform);
 		if (gameMusicEnabled)
 		{

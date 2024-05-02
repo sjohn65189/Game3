@@ -146,7 +146,7 @@ public class Yeti : MonoBehaviour
 	{
 		gameObject.SetActive(false);
 		transform.position = new Vector3(-1, 0, 0);
-		yield return new WaitForSeconds(6f);
+		yield return new WaitForSeconds(5f);
 		gameObject.SetActive(true);
 	}
 }

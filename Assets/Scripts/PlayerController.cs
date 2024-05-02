@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 	
 	public NavMeshSurface navSurface;
 
+	public float thresholdDistance = 1f; // Distance to yeti to decrease health
 	public float moveSpeed = 5f;
 	public Transform movePoint;
 
@@ -66,6 +67,15 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
+		// Calculate the distance between object1 and object2
+		float distance = Vector3.Distance(transform.position, yeti.transform.position);
+
+		// Check if the distance is less than the threshold distance
+		if (distance < thresholdDistance && yeti.gameObject.active) 
+		{
+			CatchPlayer();
+		}
+		
 		// Move player towards movepoint
 		transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 		
@@ -159,22 +169,32 @@ public class PlayerController : MonoBehaviour
 		wanderPoints = new List<Vector3>();
 	}
 	
-	private void OnCollisionEnter2D(Collision2D collision)
+	public void CatchPlayer() 
 	{
-		// On collision with Yeti, lose health
-		if (collision.gameObject.CompareTag("Yeti")) {
-			// If health above 0, decrease by 25 otherwise gameover
-			if (playerHealth.Health > 0) 
-			{
-				playerHealth.SetHealth(-25);
-				transform.position = new Vector3(0, 0, 0);
-				movePoint.transform.position = new Vector3(0, 0, 0);
-				yeti.ResetPosition();
-			}
-			else 
-			{
-				menus.Gameover();
-			}
+		// If health above 0, decrease by 25 otherwise gameover
+		if (playerHealth.Health > 0) 
+		{
+			playerHealth.SetHealth(-25);
+			transform.position = new Vector3(0, 0, 0);
+			movePoint.transform.position = new Vector3(0, 0, 0);
+			StartCoroutine(DelayChase());
 		}
+		if (playerHealth.Health <= 0) 
+		{
+			menus.Gameover();
+		}
+	}
+	
+	public void YetiStart() 
+	{
+		StartCoroutine(DelayChase());
+	}
+	
+	public IEnumerator DelayChase()
+	{
+		yeti.gameObject.SetActive(false);
+		yeti.gameObject.transform.position = new Vector3(-1, 0, 0);
+		yield return new WaitForSeconds(5f);
+		yeti.gameObject.SetActive(true);
 	}
 }

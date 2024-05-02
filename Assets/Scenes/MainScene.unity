@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23787,6 +23787,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6163113779082951115, guid: ffcd7bd74e55813489953158051c26f0,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163113779082951115, guid: ffcd7bd74e55813489953158051c26f0,
+        type: 3}
       propertyPath: m_TagString
       value: Yeti
       objectReference: {fileID: 0}
@@ -23798,14 +23803,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 973305573}
-    - targetCorrespondingSourceObject: {fileID: 6163113779082951115, guid: ffcd7bd74e55813489953158051c26f0,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 973305576}
-    - targetCorrespondingSourceObject: {fileID: 6163113779082951115, guid: ffcd7bd74e55813489953158051c26f0,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 973305579}
   m_SourcePrefab: {fileID: 100100000, guid: ffcd7bd74e55813489953158051c26f0, type: 3}
 --- !u!4 &680905096 stripped
 Transform:
@@ -24887,6 +24884,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2246106509343293814, guid: 52dc98257bcc88a47b61e2238b648bb7,
         type: 3}
+      propertyPath: yeti
+      value: 
+      objectReference: {fileID: 973305581}
+    - target: {fileID: 2246106509343293814, guid: 52dc98257bcc88a47b61e2238b648bb7,
+        type: 3}
       propertyPath: menus
       value: 
       objectReference: {fileID: 1844621105}
@@ -24900,6 +24902,11 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 783314330}
+    - target: {fileID: 2246106509343293814, guid: 52dc98257bcc88a47b61e2238b648bb7,
+        type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 783314334}
     - target: {fileID: 2246106509343293814, guid: 52dc98257bcc88a47b61e2238b648bb7,
         type: 3}
       propertyPath: snowStepping
@@ -24970,6 +24977,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7755440191612752732, guid: 52dc98257bcc88a47b61e2238b648bb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24978,10 +24990,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 783314330}
-    - targetCorrespondingSourceObject: {fileID: 7755440191612752732, guid: 52dc98257bcc88a47b61e2238b648bb7,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 783314333}
     - targetCorrespondingSourceObject: {fileID: 7755440191612752732, guid: 52dc98257bcc88a47b61e2238b648bb7,
         type: 3}
       insertIndex: -1
@@ -25095,41 +25103,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!58 &783314333
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783314321}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.3
 --- !u!114 &783314334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25145,6 +25118,18 @@ MonoBehaviour:
   Health: 100
   MaxHealth: 100
   healthBar: {fileID: 1876792050}
+--- !u!114 &783314335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2246106509343293814, guid: 52dc98257bcc88a47b61e2238b648bb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 783314320}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783314321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bebf22d0c56154096027ab782ebac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &807898092
 GameObject:
   m_ObjectHideFlags: 0
@@ -26668,68 +26653,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!58 &973305576
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!114 &973305581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2524783313750665977, guid: ffcd7bd74e55813489953158051c26f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 680905094}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973305570}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.3
---- !u!50 &973305579
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973305570}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56989e4982502654ca73cec143479646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &973619266
 GameObject:
   m_ObjectHideFlags: 0
@@ -34557,10 +34492,12 @@ MonoBehaviour:
   VictoryMenu: {fileID: 1803041040}
   GameOverMenu: {fileID: 351140275}
   Game: {fileID: 1285761976}
+  Yeti: {fileID: 973305570}
   Player: {fileID: 783314321}
+  playerController: {fileID: 783314335}
   BridgePieces: {fileID: 1174657014}
   Camera: {fileID: 330585543}
-  Health: {fileID: 1876792048}
+  Health: {fileID: 1685492354}
   MusicButton: {fileID: 159917351}
   SoundButton: {fileID: 1976898343}
   Main_Music: {fileID: 1844621107}
