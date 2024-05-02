@@ -15,6 +15,8 @@ public class Menus : MonoBehaviour
 	public GameObject Player;
 	public GameObject BridgePieces;
 	public GameObject Camera;
+
+	public GameObject Health;
 	public TMP_Text MusicButton;
 	public TMP_Text SoundButton;
 
@@ -31,6 +33,7 @@ public class Menus : MonoBehaviour
 		Game.SetActive(false);
 		Main_Music.Stop();
 		wind.Stop();
+		Health.SetActive(false);
 	}
 
 	// run the game
@@ -39,6 +42,7 @@ public class Menus : MonoBehaviour
 		Game.SetActive(true);
 		Player.SetActive(true);
 		BridgePieces.SetActive(true);
+		Health.SetActive(true);
         //Camera.transform.SetParent(Player.transform);
         if (gameMusicEnabled)
         {
