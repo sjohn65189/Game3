@@ -29,7 +29,15 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         this.scoreTxt.text = "Score: " + score.ToString("D4");
+
+        if(score > highscore)
+        {
+            highscore = PlayerPrefs.GetInt("highscore", score);
+        }
+        
         this.highscoreTxt.text = "Highscore: " + highscore.ToString("D4");
+        
+
     }
 
     //for storing new highscores
@@ -37,6 +45,6 @@ public class ScoreManager : MonoBehaviour
 
     void GetRelic()
     {
-        score += 40;
+        this.score += 1;
     }
 }
