@@ -21,11 +21,11 @@ public class Menus : MonoBehaviour
 	public TMP_Text SoundButton;
 
 	public AudioSource Main_Music;
-    public AudioSource wind;
+	public AudioSource wind;
 
 	private bool gameMusicEnabled = false;
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
 	{
 		OptionsMenu.SetActive(false);
 		VictoryMenu.SetActive(false);
@@ -43,13 +43,13 @@ public class Menus : MonoBehaviour
 		Player.SetActive(true);
 		BridgePieces.SetActive(true);
 		Health.SetActive(true);
-        //Camera.transform.SetParent(Player.transform);
-        if (gameMusicEnabled)
-        {
-            Main_Music.Play();
-            wind.Play();
-        }
-    }
+		//Camera.transform.SetParent(Player.transform);
+		if (gameMusicEnabled)
+		{
+			Main_Music.Play();
+			wind.Play();
+		}
+	}
 	
 	// open the options menu
 	public void OptionsButtonClicked(){
@@ -93,11 +93,11 @@ public class Menus : MonoBehaviour
 	public void GameMusicButtonClicked(){
 		if(MusicButton.text == "Off"){
 			MusicButton.text = "On";
-            gameMusicEnabled = true;
-        } else {
+			gameMusicEnabled = true;
+		} else {
 			MusicButton.text = "Off";
-            gameMusicEnabled = false;
-        }
+			gameMusicEnabled = false;
+		}
 	}
 	
 	// enable/disable the game sounds
@@ -107,6 +107,16 @@ public class Menus : MonoBehaviour
 		} else {
 			SoundButton.text = "Off";
 		}
+	}
+	
+	public void Gameover() 
+	{
+		GameOverMenu.SetActive(true);
+	}
+	
+	public void Victory() 
+	{
+		VictoryMenu.SetActive(true);
 	}
 	
 }

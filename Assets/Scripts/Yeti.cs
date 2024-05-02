@@ -38,12 +38,12 @@ public class Yeti : MonoBehaviour
 		
 		playerController = player.GetComponent<PlayerController>();
 
-        // Ensure AudioSource component is assigned
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
-    }
+		// Ensure AudioSource component is assigned
+		if (audioSource == null)
+		{
+			audioSource = gameObject.AddComponent<AudioSource>();
+		}
+	}
 
 	// Update is called once per frame
 	void Update()
@@ -61,12 +61,12 @@ public class Yeti : MonoBehaviour
 		hasReachedLastPosition = false;
 		agent.SetDestination(target);
 
-        // Play the Yeti sound with delay
-        if (canSeePlayer && canPlaySound && yetiSound != null && audioSource != null)
-        {
-            StartCoroutine(PlaySoundWithDelay(yetiSoundDelay));
-        }
-    }
+		// Play the Yeti sound with delay
+		if (canSeePlayer && canPlaySound && yetiSound != null && audioSource != null)
+		{
+			StartCoroutine(PlaySoundWithDelay(yetiSoundDelay));
+		}
+	}
 
 	void FixedUpdate() 
 	{
@@ -126,13 +126,27 @@ public class Yeti : MonoBehaviour
 		return result;
 	}
 
-    IEnumerator PlaySoundWithDelay(float delay)
-    {
-        canPlaySound = false;
-        yield return new WaitForSeconds(delay);
-        audioSource.clip = yetiSound;
-        audioSource.Play();
-        yield return new WaitForSeconds(audioSource.clip.length);
-        canPlaySound = true;
-    }
+	IEnumerator PlaySoundWithDelay(float delay)
+	{
+		canPlaySound = false;
+		yield return new WaitForSeconds(delay);
+		audioSource.clip = yetiSound;
+		audioSource.Play();
+		yield return new WaitForSeconds(audioSource.clip.length);
+		canPlaySound = true;
+	}
+	
+	// This will reset Yeti to starting position 
+	public void ResetPosition() 
+	{
+		StartCoroutine(DelayChase());
+	}
+	
+	public IEnumerator DelayChase()
+	{
+		gameObject.SetActive(false);
+		transform.position = new Vector3(-1, 0, 0);
+		yield return new WaitForSeconds(6f);
+		gameObject.SetActive(true);
+	}
 }
