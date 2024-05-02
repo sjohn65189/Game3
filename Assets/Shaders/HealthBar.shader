@@ -51,7 +51,8 @@ Shader "HealthBarShader/HealthBar"
             {
                 if (i.uv.x > _Health)
                 {
-                    return 1;
+                //    return fixed4(1, 1, 1, 1);
+                    discard;
                 }
                 return lerp(_LowColor, _HighColor, _Health);
             }
