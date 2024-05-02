@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
 
-    public Text scoreTxt;
-    public Text highscoreTxt;
+    [SerializeField] public TextMeshProUGUI scoreTxt;
+    [SerializeField] public TextMeshProUGUI highscoreTxt;
 
-    int score = 1000;
+    int score = 0;
     int highscore = 0;
 
     private void Awake() 
@@ -22,16 +23,20 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         highscore = PlayerPrefs.GetInt("highscore", 0);
-        scoreTxt.text = score.ToString() + " Points";
-        highscoreTxt.text = "Highscore: " + highscore.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        this.scoreTxt.text = "Score: " + score.ToString("D4");
+        this.highscoreTxt.text = "Highscore: " + highscore.ToString("D4");
     }
 
     //for storing new highscores
     //PlayerPrefs.SetInt("highscore", score);
+
+    void GetRelic()
+    {
+        score += 40;
+    }
 }
