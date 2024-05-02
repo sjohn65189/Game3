@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using HighScore;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -28,16 +29,14 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.scoreTxt.text = "Score: " + score.ToString("D4");
-
         if(score > highscore)
         {
             highscore = PlayerPrefs.GetInt("highscore", score);
+            //HS.SubmitHighScore(this, "Player", highscore);
         }
-        
-        this.highscoreTxt.text = "Highscore: " + highscore.ToString("D4");
-        
 
+        this.highscoreTxt.text = "Highscore: " + highscore.ToString("D4");
+        this.scoreTxt.text = "Score: " + score.ToString("D4");
     }
 
     //for storing new highscores
