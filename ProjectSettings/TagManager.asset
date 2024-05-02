@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Yeti
+  - WinZone
   layers:
   - Default
   - TransparentFX

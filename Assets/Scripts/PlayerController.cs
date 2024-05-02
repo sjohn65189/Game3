@@ -197,4 +197,13 @@ public class PlayerController : MonoBehaviour
 		yield return new WaitForSeconds(5f);
 		yeti.gameObject.SetActive(true);
 	}
+	
+	private void OnCollisionEnter2D(Collision2D collision) 
+	{
+		// Win condition
+		if (collision.gameObject.CompareTag("WinZone")) 
+		{
+			menus.Victory();
+		}
+	}
 }

@@ -116,11 +116,13 @@ public class Menus : MonoBehaviour
 	public void Gameover() 
 	{
 		GameOverMenu.SetActive(true);
+		Player.SetActive(false);
 	}
 	
 	public void Victory() 
 	{
 		VictoryMenu.SetActive(true);
+		Yeti.SetActive(false);
 	}
 	
 }
