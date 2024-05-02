@@ -16,12 +16,13 @@ public class HealthBarUI : MonoBehaviour
 	{
 		healthBarImage = healthBar.GetComponent<Image>();
 		healthBarMaterial = healthBarImage.material;
-		healthBarMaterial.SetFloat("_Health", 1);
+//		healthBarMaterial.SetFloat("_Health", 1f);
 	}
 
 	public void SetMaxHealth(float maxHealth)
 	{
 		MaxHealth = maxHealth;
+		healthBarMaterial.SetFloat("_Health", 1f);
 	}
 
 	public void SetHealth(float health)
