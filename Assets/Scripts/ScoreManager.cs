@@ -37,8 +37,8 @@ public class ScoreManager : MonoBehaviour
         }
 
         //write texts to be read and displayed
-        this.highscoreTxt.text = "Highscore: " + highscore.ToString("D4");
-        this.scoreTxt.text = "Score: " + score.ToString("D4");
+        this.highscoreTxt.text = "Highscore:\n" + highscore.ToString("D4");
+        this.scoreTxt.text = "Score:\n" + score.ToString("D4");
     }
 
     //for storing new highscores
@@ -47,12 +47,12 @@ public class ScoreManager : MonoBehaviour
     // for getting points in level later on
     void GetRelic()
     {
-        this.score += 1;
+        this.score += 40;
     }
 
     public void AddTimeToScore(int deltaTime) 
     {
-        this.score += deltaTime;
+        this.score += 9999 - deltaTime;
     }
 
     //check if new highscore

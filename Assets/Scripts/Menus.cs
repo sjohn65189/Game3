@@ -118,7 +118,8 @@ public class Menus : MonoBehaviour
 	
 	public void Gameover() 
 	{
-		GameOverMenu.SetActive(true);
+        ScoreManager.instance.NewHigh();
+        GameOverMenu.SetActive(true);
 		Player.SetActive(false);
 	}
 	
