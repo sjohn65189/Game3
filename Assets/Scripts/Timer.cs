@@ -24,7 +24,8 @@ public class Timer : MonoBehaviour
             elapsedTime += Time.deltaTime;
         }
 
-        int seconds = Mathf.FloorToInt(elapsedTime % 60);
+        // force time to be individual seconds
+        int seconds = (int)elapsedTime;
         timerText.text = "Time: " + seconds.ToString("D4");
     }
 
