@@ -5,9 +5,16 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+    public static Timer instance;
+
     [SerializeField] TextMeshProUGUI timerText;
-    float elapsedTime;
+    public float elapsedTime;
     bool timerIsOn = false;
+
+    private void Awake() 
+    {
+        instance = this;
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,7 +28,7 @@ public class Timer : MonoBehaviour
         timerText.text = "Time: " + seconds.ToString("D4");
     }
 
-    void StartTimer()
+    public void StartTimer()
     {
         elapsedTime = 0;
         timerIsOn = true;

@@ -53,6 +53,9 @@ public class Menus : MonoBehaviour
 			Main_Music.Play();
 			wind.Play();
 		}
+
+		//start timer for game
+		Timer.instance.StartTimer();
 	}
 	
 	// open the options menu

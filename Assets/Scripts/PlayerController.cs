@@ -203,7 +203,10 @@ public class PlayerController : MonoBehaviour
 		// Win condition
 		if (collision.gameObject.CompareTag("WinZone")) 
 		{
-			menus.Victory();
+            ScoreManager.instance.NewHigh();
+			ScoreManager.instance.AddTimeToScore((int)Timer.instance.elapsedTime);
+            menus.Victory();
+			
 		}
 	}
 }

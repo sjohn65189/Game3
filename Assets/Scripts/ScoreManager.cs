@@ -24,6 +24,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         highscore = PlayerPrefs.GetInt("highscore", 0);
+        HS.Init(this, "Ice Monk");
     }
 
     // Update is called once per frame
@@ -33,7 +34,6 @@ public class ScoreManager : MonoBehaviour
         if(score > highscore)
         {
             highscore = PlayerPrefs.GetInt("highscore", score);
-            //HS.SubmitHighScore(this, "Player", highscore);
         }
 
         //write texts to be read and displayed
@@ -48,5 +48,16 @@ public class ScoreManager : MonoBehaviour
     void GetRelic()
     {
         this.score += 1;
+    }
+
+    public void AddTimeToScore(int deltaTime) 
+    {
+        this.score += deltaTime;
+    }
+
+    //check if new highscore
+    public void NewHigh() 
+    {
+        HS.SubmitHighScore(this, "Player", this.score);
     }
 }

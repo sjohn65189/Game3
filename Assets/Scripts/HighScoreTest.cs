@@ -17,6 +17,7 @@ public class HighScoreTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (delay > 0) {
             delay -= Time.deltaTime;
             if (delay < 0) {
@@ -24,5 +25,6 @@ public class HighScoreTest : MonoBehaviour
                 //HS.SubmitHighScore(this, "Player", 0);
             }
         }
+        */
     }
 }
