@@ -25,7 +25,7 @@ public class Menus : MonoBehaviour
 	public AudioSource Main_Music;
 	public AudioSource wind;
 
-	private bool gameMusicEnabled = false;
+	public bool gameMusicEnabled = false;
 	// Start is called before the first frame update
 	void Start()
 	{

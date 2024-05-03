@@ -7,7 +7,6 @@ using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Tilemaps;
-using TMPro;
 
 public class BridgeSystem : MonoBehaviour
 {
