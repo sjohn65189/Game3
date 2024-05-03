@@ -124,7 +124,9 @@ public class Menus : MonoBehaviour
 	
 	public void Victory() 
 	{
-		VictoryMenu.SetActive(true);
+        ScoreManager.instance.AddTimeToScore((int)Timer.instance.elapsedTime);
+        ScoreManager.instance.NewHigh();
+        VictoryMenu.SetActive(true);
 		Yeti.SetActive(false);
 	}
 	
