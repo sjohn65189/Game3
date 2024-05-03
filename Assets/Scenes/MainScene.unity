@@ -32379,7 +32379,6 @@ GameObject:
   - component: {fileID: 1435057118}
   - component: {fileID: 1435057117}
   - component: {fileID: 1435057116}
-  - component: {fileID: 1435057115}
   - component: {fileID: 1435057121}
   - component: {fileID: 1435057120}
   m_Layer: 5
@@ -32389,18 +32388,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1435057115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435057114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0cd3fe68d093c641b09a5c25dc87c69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1435057116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32511,6 +32498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1100312207}
+  elapsedTime: 0
 --- !u!1 &1455710235
 GameObject:
   m_ObjectHideFlags: 0
