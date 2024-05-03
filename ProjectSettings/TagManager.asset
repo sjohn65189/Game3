@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Yeti
   - WinZone
+  - PlankCounter1
+  - PlankCounter2
+  - bridge1
+  - bridge2
   layers:
   - Default
   - TransparentFX

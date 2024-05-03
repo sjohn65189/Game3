@@ -1,11 +1,13 @@
 using NavMeshPlus.Components;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Tilemaps;
+using TMPro;
 
 public class BridgeSystem : MonoBehaviour
 {
@@ -18,12 +20,19 @@ public class BridgeSystem : MonoBehaviour
 	public AudioSource audioSource; // Add this field to reference the AudioSource component
 
 
+	private TextMeshProUGUI plankCounter1;
+	private TextMeshProUGUI plankCounter2;
 	private bool hasCollided = false;
+	private bool counted = false;
 	private NavMeshSurface navMeshSurface; //reference to the NavMeshSurface component
 	private Rigidbody2D plankRigidbody; // Reference to the Rigidbody2D component
 
 	private void Start()
 	{
+		// Get counter objects
+		plankCounter1 = GameObject.FindGameObjectWithTag("PlankCounter1").GetComponent<TextMeshProUGUI>();
+		plankCounter2 = GameObject.FindGameObjectWithTag("PlankCounter2").GetComponent<TextMeshProUGUI>();
+		
 		// Get the Rigidbody2D component attached to this GameObject
 		plankRigidbody = GetComponent<Rigidbody2D>();
 
@@ -33,7 +42,7 @@ public class BridgeSystem : MonoBehaviour
 	private void Update()
 	{
 		// Check if the "G" key is pressed and the collision flag is set
-		if (Input.GetKeyDown(KeyCode.G) && hasCollided)
+		if (Input.GetKeyDown(KeyCode.G) && hasCollided && !counted)
 		{
 			// Play the pickup sound
 			if (pickupSound != null && audioSource != null)
@@ -41,8 +50,24 @@ public class BridgeSystem : MonoBehaviour
 				audioSource.clip = pickupSound;
 				audioSource.Play();
 			}
+			
+			// Move to target tile and add to corresponding counter
 			MoveToTargetTile();
 			hasCollided=false;
+			counted = true;
+			
+			switch (gameObject.tag) 
+			{
+				case "bridge1":
+					int currentCount1 = int.Parse(plankCounter1.text);
+					plankCounter1.text = (currentCount1 += 1).ToString();
+					break;
+				case "bridge2":
+					int currentCount2 = int.Parse(plankCounter2.text);
+					plankCounter2.text = (currentCount2 += 1).ToString();
+					break;
+			}
+			
 
 
 			// Rebuild the NavMesh after moving the item
