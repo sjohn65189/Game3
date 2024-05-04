@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 	public AudioSource audioSource;
 	
 	public PlayerHealth playerHealth;
-	public Menus menus;
+	public GameManager gameManager;
 	public Yeti yeti;
 
 	public LayerMask whatStopsMovement;
@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
 		}
 		if (playerHealth.Health <= 0) 
 		{
-			menus.Gameover();
+			gameManager.Gameover();
 		}
 	}
 	
@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
 		// Win condition
 		if (collision.gameObject.CompareTag("WinZone")) 
 		{
-            menus.Victory();
+            gameManager.Victory();
 			
 		}
 	}
