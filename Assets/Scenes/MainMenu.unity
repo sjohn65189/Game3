@@ -2889,7 +2889,7 @@ MonoBehaviour:
   MusicButton: {fileID: 159917351}
   SoundButton: {fileID: 1976898343}
   Main_Music: {fileID: 1844621107}
-  wind: {fileID: 1844621108}
+  Wind_Sound: {fileID: 1844621108}
 --- !u!1 &1976898342
 GameObject:
   m_ObjectHideFlags: 0
