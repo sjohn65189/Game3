@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Icon : MonoBehaviour
 {
-    public GameObject Menu;
+    public GameObject GameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,33 +20,14 @@ public class Icon : MonoBehaviour
 
     public void MusicButtonClicked() 
     {
-        Menus menu = Menu.GetComponent<Menus>();
-
-        if (menu.gameMusicEnabled == false)
-        {
-            menu.gameMusicEnabled = true;
-            menu.Main_Music.Play();
-
-            if (menu.MusicButton.text == "Off")
-            {
-                menu.MusicButton.text = "On";
-            }
-        }
-        else if (menu.gameMusicEnabled == true)
-        {
-            menu.gameMusicEnabled = false;
-            menu.Main_Music.Stop();
-            if (menu.MusicButton.text == "On")
-            {
-                menu.MusicButton.text = "Off";
-            }
-        }
+        GameManager gameM = GameManager.GetComponent<GameManager>();
+        gameM.Main_Music.mute = !gameM.Main_Music.mute;
     }
 
     public void GameSoundButtonClicked() 
     {
-        Menus menu = Menu.GetComponent<Menus>();
-
+        GameManager gameM = GameManager.GetComponent<GameManager>();
+        gameM.Wind_Sound.mute = !gameM.Wind_Sound.mute;
     }
 
 }
