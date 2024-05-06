@@ -8,7 +8,6 @@ using NavMeshPlus.Components;
 public class ItemInventory : MonoBehaviour
 {
     public Image[] itemSlots; // Array of Image components representing inventory slots
-    public Sprite itemSprite; // The sprite of the item to be picked up
     public Tilemap groundTilemap;
     public Tilemap groundOverlayTilemap;
     public AudioClip pickupSound; // Add this field to hold the pickup sound
@@ -36,11 +35,11 @@ public class ItemInventory : MonoBehaviour
                 audioSource.clip = pickupSound;
                 audioSource.Play();
             }
-            AddItem(itemSprite);
+            AddItem(spriteToAdd);
             hasCollided = false;
 
 
-            // Rebuild the NavMesh after moving the item
+            // Rebuild the NavMesh after collecting the item
             if (navMeshSurface != null)
             {
                 navMeshSurface.BuildNavMesh();
@@ -62,14 +61,19 @@ public class ItemInventory : MonoBehaviour
         }
     }
 
+    private Sprite spriteToAdd; // Sprite of the collided object
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && !hasCollided)
         {
             hasCollided = true;
-           
-            // Optionally, destroy the item object after pickup
-            Destroy(gameObject);
+
+            // Get the sprite of the collided object
+            SpriteRenderer collidedRenderer = collision.gameObject.GetComponent<SpriteRenderer>();
+            if (collidedRenderer != null)
+            {
+                spriteToAdd = collidedRenderer.sprite;
+            }
         }
     }
 }
