@@ -23,11 +23,15 @@ public class Menus : MonoBehaviour
 	public TMP_Text SoundButton;
 
 	public AudioSource Main_Music;
-	public AudioSource wind;
+    public AudioSource wind;
+	public AudioSource pickUp;
+	public AudioSource yeti;
+	public AudioSource footsteps;
 
-	public bool gameMusicEnabled = false;
-	// Start is called before the first frame update
-	void Start()
+	private bool gameMusicEnabled = false;
+    private bool gameSoundsEnabled = false;
+    // Start is called before the first frame update
+    void Start()
 	{
 		OptionsMenu.SetActive(false);
 		VictoryMenu.SetActive(false);
@@ -35,8 +39,10 @@ public class Menus : MonoBehaviour
 		Game.SetActive(false);
 		Main_Music.Stop();
 		wind.Stop();
-		Health.SetActive(false);
-	}
+        pickUp.Stop();
+        yeti.Stop();
+        footsteps.Stop();
+    }
 
 	// run the game
 	public void StartButtonClicked(){
@@ -45,18 +51,19 @@ public class Menus : MonoBehaviour
 		Player.SetActive(true);
 		Yeti.SetActive(true);
 		BridgePieces.SetActive(true);
-		Health.SetActive(true);
-		playerController.YetiStart(); // This delays the yeti chase
-		//Camera.transform.SetParent(Player.transform);
-		if (gameMusicEnabled)
-		{
-			Main_Music.Play();
-			wind.Play();
-		}
-
-		//start timer for game
-		Timer.instance.StartTimer();
-	}
+        //Camera.transform.SetParent(Player.transform);
+        if (gameMusicEnabled)
+        {
+            Main_Music.Play();
+            wind.Play();
+        }
+        if (gameSoundsEnabled)
+        {
+            yeti.Play();
+            pickUp.Play();
+            footsteps.Play();
+        }
+    }
 	
 	// open the options menu
 	public void OptionsButtonClicked(){
@@ -111,24 +118,11 @@ public class Menus : MonoBehaviour
 	public void GameSoundsButtonClicked(){
 		if(SoundButton.text == "Off"){
 			SoundButton.text = "On";
-		} else {
+            gameSoundsEnabled = true;
+        } else {
 			SoundButton.text = "Off";
-		}
+            gameSoundsEnabled = false;
+        }
 	}
-	
-	public void Gameover() 
-	{
-        ScoreManager.instance.NewHigh();
-        GameOverMenu.SetActive(true);
-		Player.SetActive(false);
-	}
-	
-	public void Victory() 
-	{
-        ScoreManager.instance.AddTimeToScore((int)Timer.instance.elapsedTime);
-        ScoreManager.instance.NewHigh();
-        VictoryMenu.SetActive(true);
-		Yeti.SetActive(false);
-	}
-	
+
 }
