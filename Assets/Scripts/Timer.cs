@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
     private void Awake() 
     {
         instance = this;
+        timerIsOn = true;
     }
 
     // Update is called once per frame
@@ -33,5 +34,10 @@ public class Timer : MonoBehaviour
     {
         elapsedTime = 0;
         timerIsOn = true;
+    }
+
+    public void StopTimer()
+    {
+        timerIsOn = false;
     }
 }

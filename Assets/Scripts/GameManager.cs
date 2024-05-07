@@ -66,15 +66,14 @@ public class GameManager : MonoBehaviour
 	
 	public void Gameover() 
 	{
-		ScoreManager.instance.NewHigh();
 		GameOverMenu.SetActive(true);
 		Player.SetActive(false);
 	}
 	
 	public void Victory() 
 	{
+		//add time to score when you win
 		ScoreManager.instance.AddTimeToScore((int)Timer.instance.elapsedTime);
-		ScoreManager.instance.NewHigh();
 		VictoryMenu.SetActive(true);
 		Yeti.SetActive(false);
 	}
