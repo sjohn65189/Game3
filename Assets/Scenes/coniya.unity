@@ -4609,7 +4609,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 816961ce22d93784eb89026b3d4770ab,
     type: 3}
-  m_Color: {r: 0.09803918, g: 0.98039216, b: 0.14424765, a: 1}
+  m_Color: {r: 0.941594, g: 0.9528302, b: 0.92136884, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17916,7 +17916,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 6ed4a0dde2af7b846aaa54ebccb28207,
     type: 3}
-  m_Color: {r: 0.09803918, g: 0.18832298, b: 0.98039216, a: 1}
+  m_Color: {r: 0.9487807, g: 0.9616316, b: 0.9716981, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -18932,7 +18932,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: b0a158929bb520745ba31f1d6284f5b5,
     type: 3}
-  m_Color: {r: 0.9811321, g: 0.09718761, b: 0.09718761, a: 1}
+  m_Color: {r: 0.9433962, g: 0.93004626, b: 0.93144417, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -45996,6 +45996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreTxt: {fileID: 1016353075}
   highscoreTxt: {fileID: 846723004}
+  playerNameTxt: {fileID: 0}
 --- !u!114 &1288126479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46897,6 +46898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreTxt: {fileID: 1315874120}
   highscoreTxt: {fileID: 706279549}
+  playerNameTxt: {fileID: 0}
 --- !u!114 &1453088152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59142,6 +59144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreTxt: {fileID: 137722636}
   highscoreTxt: {fileID: 1695133337}
+  playerNameTxt: {fileID: 0}
 --- !u!114 &1924362089
 MonoBehaviour:
   m_ObjectHideFlags: 0
