@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
 	{
 		// Load game
 		SceneManager.LoadScene("GameScene");
-	}
+    }
 	
 	// Open the options menu
 	public void OptionsButtonClicked()

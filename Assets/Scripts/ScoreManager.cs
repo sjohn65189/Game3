@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] public TextMeshProUGUI scoreTxt;
     [SerializeField] public TextMeshProUGUI highscoreTxt;
+    [SerializeField] public TextMeshProUGUI playerNameTxt;
 
     int score = 0;
     int highscore = 0;
@@ -58,6 +59,6 @@ public class ScoreManager : MonoBehaviour
     //check if new highscore
     public void NewHigh() 
     {
-        HS.SubmitHighScore(this, "Player", this.score);
+        HS.SubmitHighScore(this, playerNameTxt.text, this.score);
     }
 }
