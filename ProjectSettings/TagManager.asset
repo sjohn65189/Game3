@@ -10,6 +10,7 @@ TagManager:
   - PlankCounter2
   - bridge1
   - bridge2
+  - Artifact
   layers:
   - Default
   - TransparentFX

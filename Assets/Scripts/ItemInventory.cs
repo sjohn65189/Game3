@@ -16,6 +16,7 @@ public class ItemInventory : MonoBehaviour
     private Rigidbody2D Rigidbody; // Reference to the Rigidbody2D component
     private NavMeshSurface navMeshSurface; //reference to the NavMeshSurface component
     private bool hasCollided = false;
+    private GameObject collidedObject; // Reference to the collided object
     private void Start()
     {
         // Get the Rigidbody2D component attached to this GameObject
@@ -36,6 +37,7 @@ public class ItemInventory : MonoBehaviour
                 audioSource.Play();
             }
             AddItem(spriteToAdd);
+            Destroy(collidedObject);
             hasCollided = false;
 
 
@@ -56,6 +58,7 @@ public class ItemInventory : MonoBehaviour
             {
                 // Set the sprite of the empty slot to the item sprite
                 itemSlots[i].sprite = itemSprite;
+                Debug.Log("sprite added to inventory");
                 return; // Exit the loop after adding the item
             }
         }
@@ -64,11 +67,17 @@ public class ItemInventory : MonoBehaviour
     private Sprite spriteToAdd; // Sprite of the collided object
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !hasCollided)
+        if (collision.gameObject.CompareTag("Artifact") && !hasCollided)
         {
             hasCollided = true;
+            Debug.Log("has collided with sprite");
+            collidedObject = collision.gameObject;
 
-            // Get the sprite of the collided object
+            // Get the sprite of the collided object and print its name
+            Sprite collidedSprite = collidedObject.GetComponent<SpriteRenderer>().sprite;
+            Debug.Log("Collided with sprite: " + collidedSprite.name);
+
+        // Get the sprite of the collided object
             SpriteRenderer collidedRenderer = collision.gameObject.GetComponent<SpriteRenderer>();
             if (collidedRenderer != null)
             {
