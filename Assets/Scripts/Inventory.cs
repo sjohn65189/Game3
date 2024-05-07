@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
     private static List<string> collectedItems = new List<string>(); // Static list to keep track of collected items across all instances
 
     public string itemName; //Name of Item
+    public Image[] uiSprites; // Array of UI sprites to display collected items
 
     void OnCollisionStay2D(Collision2D collision)
     {
@@ -35,13 +37,21 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    static void UpdateCollectedItemsUI()
+    void UpdateCollectedItemsUI()
     {
         // Print the names of collected items to the console for demonstration
-        Debug.Log("Collected Items:");
         foreach (var item in collectedItems)
         {
-            Debug.Log("- " + item);
+            Debug.Log("Collected Item: " + item);
+        }
+        // Loop through all collected items and update UI sprites accordingly
+        for (int i = 0; i < collectedItems.Count && i < uiSprites.Length; i++)
+        {
+            // Assuming your items have a sprite associated with their name
+            Sprite itemSprite = Resources.Load<Sprite>("ArtifactSprites/" + collectedItems[i]); // Adjust the path as needed
+
+            // Assign the collected item sprite to the corresponding UI sprite
+            uiSprites[i].sprite = itemSprite;
         }
     }
 }
