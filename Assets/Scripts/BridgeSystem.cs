@@ -10,6 +10,7 @@ using UnityEngine.Tilemaps;
 
 public class BridgeSystem : MonoBehaviour
 {
+	[HideInInspector] public PlayerInputActions input;
 	public Vector3Int targetTilePosition; //position the plank will land on the bridge
 	public Tilemap groundTilemap;
 	public Tilemap groundOverlayTilemap;
@@ -28,6 +29,9 @@ public class BridgeSystem : MonoBehaviour
 
 	private void Start()
 	{
+		input = new PlayerInputActions();
+		input.Enable();
+		
 		// Get counter objects
 		plankCounter1 = GameObject.FindGameObjectWithTag("PlankCounter1").GetComponent<TextMeshProUGUI>();
 		plankCounter2 = GameObject.FindGameObjectWithTag("PlankCounter2").GetComponent<TextMeshProUGUI>();
@@ -38,10 +42,16 @@ public class BridgeSystem : MonoBehaviour
 		//find navMeshSurface in scene
 		navMeshSurface = FindObjectOfType<NavMeshSurface>();
 	}
+	
+	private void OnDisable()
+	{
+		input.Disable();
+	}
+	
 	private void Update()
 	{
 		// Check if the "G" key is pressed and the collision flag is set
-		if (Input.GetKeyDown(KeyCode.G) && hasCollided && !counted)
+		if (input.PlayerActions.PickUpItem.IsPressed() && hasCollided && !counted)
 		{
 			// Play the pickup sound
 			if (pickupSound != null && audioSource != null)

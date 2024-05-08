@@ -62,6 +62,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pick Up Item"",
+                    ""type"": ""Button"",
+                    ""id"": ""308313f1-656b-40d6-b8e2-382478a2f82e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -240,6 +249,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Move Left"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2bfc85fa-d3de-474d-8e40-3fade4afbce8"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pick Up Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb57fa39-2e19-4a42-8e1f-91ccbeb0fdd7"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pick Up Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -252,6 +283,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_PlayerActions_MoveDown = m_PlayerActions.FindAction("Move Down", throwIfNotFound: true);
         m_PlayerActions_MoveRight = m_PlayerActions.FindAction("Move Right", throwIfNotFound: true);
         m_PlayerActions_MoveLeft = m_PlayerActions.FindAction("Move Left", throwIfNotFound: true);
+        m_PlayerActions_PickUpItem = m_PlayerActions.FindAction("Pick Up Item", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -317,6 +349,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_MoveDown;
     private readonly InputAction m_PlayerActions_MoveRight;
     private readonly InputAction m_PlayerActions_MoveLeft;
+    private readonly InputAction m_PlayerActions_PickUpItem;
     public struct PlayerActionsActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -325,6 +358,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @MoveDown => m_Wrapper.m_PlayerActions_MoveDown;
         public InputAction @MoveRight => m_Wrapper.m_PlayerActions_MoveRight;
         public InputAction @MoveLeft => m_Wrapper.m_PlayerActions_MoveLeft;
+        public InputAction @PickUpItem => m_Wrapper.m_PlayerActions_PickUpItem;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -346,6 +380,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @MoveLeft.started += instance.OnMoveLeft;
             @MoveLeft.performed += instance.OnMoveLeft;
             @MoveLeft.canceled += instance.OnMoveLeft;
+            @PickUpItem.started += instance.OnPickUpItem;
+            @PickUpItem.performed += instance.OnPickUpItem;
+            @PickUpItem.canceled += instance.OnPickUpItem;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -362,6 +399,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @MoveLeft.started -= instance.OnMoveLeft;
             @MoveLeft.performed -= instance.OnMoveLeft;
             @MoveLeft.canceled -= instance.OnMoveLeft;
+            @PickUpItem.started -= instance.OnPickUpItem;
+            @PickUpItem.performed -= instance.OnPickUpItem;
+            @PickUpItem.canceled -= instance.OnPickUpItem;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -385,5 +425,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnMoveDown(InputAction.CallbackContext context);
         void OnMoveRight(InputAction.CallbackContext context);
         void OnMoveLeft(InputAction.CallbackContext context);
+        void OnPickUpItem(InputAction.CallbackContext context);
     }
 }
