@@ -7,8 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HealthBar
-  m_Shader: {fileID: 4800000, guid: eb6f2d92050b03b418befd8b6a7cd7af, type: 3}
+  m_Name: YetiNearby
+  m_Shader: {fileID: -6465566751694194690, guid: f752ea2c8a9830745a781dce33356791,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,14 +24,19 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTex:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _Health: 1
-    m_Colors:
-    - _HighColor: {r: 0.08810955, g: 0.21939044, b: 0.8490566, a: 1}
-    - _LowColor: {r: 0.376796, g: 0.4711712, b: 0.7056604, a: 1}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
