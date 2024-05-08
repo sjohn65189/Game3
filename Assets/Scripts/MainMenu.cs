@@ -9,7 +9,6 @@ public class MainMenu : MonoBehaviour
 {
 	public GameObject StartMenu;
 	public GameObject OptionsMenu;
-
 	public TMP_Text MusicButton;
 	public TMP_Text SoundButton;
 

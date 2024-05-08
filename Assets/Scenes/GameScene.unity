@@ -24897,6 +24897,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: df7ffe947093c6c4591a59b695b9747f, type: 3}
     - target: {fileID: 2524783313750665977, guid: ffcd7bd74e55813489953158051c26f0,
         type: 3}
+      propertyPath: yetiNearby
+      value: 
+      objectReference: {fileID: 2100000, guid: b2cf2190f373f3e498ded0d97706996d, type: 2}
+    - target: {fileID: 2524783313750665977, guid: ffcd7bd74e55813489953158051c26f0,
+        type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 973305573}
@@ -24934,10 +24939,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6163113779082951115, guid: ffcd7bd74e55813489953158051c26f0,
-        type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 973305584}
     - targetCorrespondingSourceObject: {fileID: 6163113779082951115, guid: ffcd7bd74e55813489953158051c26f0,
         type: 3}
       insertIndex: -1
@@ -32846,18 +32847,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &973305584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973305570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96f53ac4c8df3da409ad526743c24844, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &973619266
 GameObject:
   m_ObjectHideFlags: 0
@@ -37493,6 +37482,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193665427}
   m_CullTransparentMesh: 1
+--- !u!1 &1208331837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1208331839}
+  - component: {fileID: 1208331838}
+  m_Layer: 0
+  m_Name: YetiNearbyMaterial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1208331838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208331837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4653463f8819c364891adb0b74dfed46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: b2cf2190f373f3e498ded0d97706996d, type: 2}
+  maxFloatValue: 10
+  minFloatValue: 0.2
+--- !u!4 &1208331839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208331837}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.656572, y: 12.628979, z: -26.213524}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1244279800
 GameObject:
   m_ObjectHideFlags: 0
@@ -70450,3 +70486,4 @@ SceneRoots:
   - {fileID: 1640909075}
   - {fileID: 1296528242}
   - {fileID: 812695429}
+  - {fileID: 1208331839}

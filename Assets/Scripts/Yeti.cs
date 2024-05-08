@@ -27,6 +27,10 @@ public class Yeti : MonoBehaviour
 	// Debug variable
 	private bool isDebug = false;
 
+	public GameObject yetiNearby;
+	YetiClose yetiN;
+	Material yetiNMat;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -42,6 +46,10 @@ public class Yeti : MonoBehaviour
 		{
 			audioSource = gameObject.AddComponent<AudioSource>();
 		}
+
+		yetiNearby = GameObject.Find("YetiNearbyMaterial");
+		yetiN = yetiNearby.GetComponent<YetiClose>();
+		yetiNMat = yetiN.GetComponent<Renderer>().material;
 	}
 
 	// Update is called once per frame
@@ -88,6 +96,8 @@ public class Yeti : MonoBehaviour
 		if (raycastHit2D.collider != null)
 		{
 			canSeePlayer = false;
+			float yetiAway = Mathf.Clamp(1f, yetiN.minFloatValue, yetiN.maxFloatValue);
+			yetiNMat.SetFloat("_VignettePower", yetiAway);
 			agent.speed = 5.5f;
 			// Collision with snow detected
 			if (isDebug) 
@@ -100,7 +110,10 @@ public class Yeti : MonoBehaviour
 			// No collision with snow, update player's last position
 			canSeePlayer = true;
 			agent.speed = 7.5f;
+			float yetiClose = Mathf.Clamp(-1f, yetiN.minFloatValue, yetiN.maxFloatValue);
+			yetiNMat.SetFloat("_VignettePower", yetiClose);
 			target = playerController.movePoint.transform.position;
+
 		}
 	}
 	
