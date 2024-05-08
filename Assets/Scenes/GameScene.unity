@@ -2672,6 +2672,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2814,6 +2815,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 783314327}
   smoothSpeed: 0.25
+  cameraPos: {x: 0, y: 0, z: 0}
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8915cdf1269437d41a28a22b7aa8e42d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPos: {x: 0, y: 0, z: 0}
+  cameraFollow: {fileID: 330585548}
+  intensity: 0
+  speed: 1
 --- !u!1 &346370175
 GameObject:
   m_ObjectHideFlags: 0
@@ -25911,6 +25929,11 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 158684780}
+    - target: {fileID: 2246106509343293814, guid: 52dc98257bcc88a47b61e2238b648bb7,
+        type: 3}
+      propertyPath: cameraShaker
+      value: 
+      objectReference: {fileID: 330585549}
     - target: {fileID: 2246106509343293814, guid: 52dc98257bcc88a47b61e2238b648bb7,
         type: 3}
       propertyPath: playerHealth

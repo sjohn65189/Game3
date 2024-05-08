@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
 	public PlayerHealth playerHealth;
 	public GameManager gameManager;
 	public Yeti yeti;
+	
+	public CameraShake cameraShaker;
+	private float maxDistance = 7.0f;
 
 	public LayerMask whatStopsMovement;
 	[HideInInspector] public List<Vector3> wanderPoints; // This list of points is what the yeti follows when chasing the player
@@ -69,9 +72,19 @@ public class PlayerController : MonoBehaviour
 	{
 		// Calculate the distance between object1 and object2
 		float distance = Vector3.Distance(transform.position, yeti.transform.position);
+		
+		// If camera close to yeti, we shake based on distance
+		if (distance > maxDistance && yeti.gameObject.activeSelf) 
+		{
+			cameraShaker.intensity = 0f;
+		}
+		else if (yeti.gameObject.activeSelf)
+		{
+			cameraShaker.intensity = Mathf.Lerp(0f, 8.0f, 1.0f - (distance / maxDistance));
+		}
 
 		// Check if the distance is less than the threshold distance
-		if (distance < thresholdDistance && yeti.gameObject.active) 
+		if (distance < thresholdDistance && yeti.gameObject.activeSelf) 
 		{
 			CatchPlayer();
 		}
@@ -174,6 +187,7 @@ public class PlayerController : MonoBehaviour
 		// If health above 0, decrease by 25 otherwise gameover
 		if (playerHealth.Health > 0) 
 		{
+			cameraShaker.intensity = 0f;
 			playerHealth.SetHealth(-25);
 			transform.position = new Vector3(0, 0, 0);
 			movePoint.transform.position = new Vector3(0, 0, 0);
@@ -181,6 +195,7 @@ public class PlayerController : MonoBehaviour
 		}
 		if (playerHealth.Health <= 0) 
 		{
+			cameraShaker.intensity = 0f;
 			gameManager.Gameover();
 		}
 	}
