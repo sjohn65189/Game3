@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11759,6 +11759,7 @@ MonoBehaviour:
   scoreTxt: {fileID: 1531026683}
   highscoreTxt: {fileID: 1373266391}
   playerNameTxt: {fileID: 0}
+  submitHSBtn: {fileID: 0}
 --- !u!1 &393832062
 GameObject:
   m_ObjectHideFlags: 0
@@ -32779,6 +32780,7 @@ MonoBehaviour:
   scoreTxt: {fileID: 1753990579}
   highscoreTxt: {fileID: 1768442268}
   playerNameTxt: {fileID: 0}
+  submitHSBtn: {fileID: 0}
 --- !u!114 &1435057121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35405,6 +35407,7 @@ MonoBehaviour:
   scoreTxt: {fileID: 97996312}
   highscoreTxt: {fileID: 1676731370}
   playerNameTxt: {fileID: 32553672}
+  submitHSBtn: {fileID: 610441148}
 --- !u!1 &1844621104
 GameObject:
   m_ObjectHideFlags: 0

@@ -66,7 +66,10 @@ public class GameManager : MonoBehaviour
 	
 	public void Gameover() 
 	{
-		GameOverMenu.SetActive(true);
+        //stop timer in background
+        Timer.instance.StopTimer();
+
+        GameOverMenu.SetActive(true);
 		Player.SetActive(false);
 	}
 	
@@ -74,7 +77,10 @@ public class GameManager : MonoBehaviour
 	{
 		//add time to score when you win
 		ScoreManager.instance.AddTimeToScore((int)Timer.instance.elapsedTime);
-		VictoryMenu.SetActive(true);
+		//stop timer in background
+		Timer.instance.StopTimer();
+
+        VictoryMenu.SetActive(true);
 		Yeti.SetActive(false);
 	}
 }
