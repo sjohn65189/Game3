@@ -24,7 +24,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        highscore = PlayerPrefs.GetInt("highscore", 0);
+        highscore = PlayerPrefs.GetInt("highscore", 8000);
         HS.Init(this, "Ice Monk");
     }
 
