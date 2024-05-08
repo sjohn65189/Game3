@@ -24936,6 +24936,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6163113779082951115, guid: ffcd7bd74e55813489953158051c26f0,
         type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 973305584}
+    - targetCorrespondingSourceObject: {fileID: 6163113779082951115, guid: ffcd7bd74e55813489953158051c26f0,
+        type: 3}
       insertIndex: -1
       addedObject: {fileID: 973305573}
     - targetCorrespondingSourceObject: {fileID: 6163113779082951115, guid: ffcd7bd74e55813489953158051c26f0,
@@ -32842,6 +32846,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &973305584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973305570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f53ac4c8df3da409ad526743c24844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &973619266
 GameObject:
   m_ObjectHideFlags: 0
