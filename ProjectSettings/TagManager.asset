@@ -11,6 +11,7 @@ TagManager:
   - bridge1
   - bridge2
   - Artifact
+  - WanderReset
   layers:
   - Default
   - TransparentFX

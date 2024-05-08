@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		// Check if music and sound effects are enabled. If no value is set, return 1
-		int musicEnabled = PlayerPrefs.GetInt("musicEnabled", 1);
+		int musicEnabled = PlayerPrefs.GetInt("MusicEnabled", 1);
 		int SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
 		
 		if (musicEnabled == 1) 

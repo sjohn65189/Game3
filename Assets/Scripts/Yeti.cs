@@ -11,6 +11,8 @@ public class Yeti : MonoBehaviour
 	public AudioClip yetiSound;
 	public AudioSource audioSource;
 	
+	public AudioSource wanderResetRoar;
+	
 	public float moveSpeed = 6f;
 	public Transform movePoint;
 
@@ -148,5 +150,11 @@ public class Yeti : MonoBehaviour
 		transform.position = new Vector3(-1, 0, 0);
 		yield return new WaitForSeconds(5f);
 		gameObject.SetActive(true);
+	}
+	
+	// Roar when player crosses a wander reset zone (yeti sound 3)
+	public void WanderResetRoar() 
+	{
+		wanderResetRoar.Play();
 	}
 }
