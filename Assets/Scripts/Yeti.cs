@@ -12,9 +12,6 @@ public class Yeti : MonoBehaviour
 	public AudioSource audioSource;
 	
 	public AudioSource wanderResetRoar;
-	
-	public float moveSpeed = 6f;
-	public Transform movePoint;
 
 	public float yetiSoundDelay = 3.0f;
 	private bool canPlaySound = true;
@@ -91,6 +88,7 @@ public class Yeti : MonoBehaviour
 		if (raycastHit2D.collider != null)
 		{
 			canSeePlayer = false;
+			agent.speed = 5.5f;
 			// Collision with snow detected
 			if (isDebug) 
 			{
@@ -101,6 +99,7 @@ public class Yeti : MonoBehaviour
 		{
 			// No collision with snow, update player's last position
 			canSeePlayer = true;
+			agent.speed = 7.5f;
 			target = playerController.movePoint.transform.position;
 		}
 	}
