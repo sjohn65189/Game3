@@ -29,7 +29,7 @@ public class Yeti : MonoBehaviour
 
 	public GameObject yetiNearby;
 	YetiClose yetiN;
-	Material yetiNMat;
+//	Material yetiNMat;
 
 	// Start is called before the first frame update
 	void Start()
@@ -49,7 +49,6 @@ public class Yeti : MonoBehaviour
 
 		yetiNearby = GameObject.Find("YetiNearbyMaterial");
 		yetiN = yetiNearby.GetComponent<YetiClose>();
-		yetiNMat = yetiN.GetComponent<Renderer>().material;
 	}
 
 	// Update is called once per frame
@@ -91,13 +90,16 @@ public class Yeti : MonoBehaviour
 		{
 			Debug.DrawLine(transform.position, player.transform.position, Color.red);
 		}
-		
+
+		float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 		// Check for collision with snow
 		if (raycastHit2D.collider != null)
 		{
 			canSeePlayer = false;
-			float yetiAway = Mathf.Clamp(1f, yetiN.minFloatValue, yetiN.maxFloatValue);
-			yetiNMat.SetFloat("_VignettePower", yetiAway);
+			float normalizedDistance = Mathf.Clamp01(distanceToPlayer / 5f);
+			float yetiAway = Mathf.Lerp(yetiN.minFloatValue, yetiN.maxFloatValue, normalizedDistance);
+			yetiN.material.SetFloat("_VignettePower", yetiAway);
+			Debug.Log("Yeti Away:" + yetiAway);
 			agent.speed = 5.5f;
 			// Collision with snow detected
 			if (isDebug) 
@@ -110,8 +112,10 @@ public class Yeti : MonoBehaviour
 			// No collision with snow, update player's last position
 			canSeePlayer = true;
 			agent.speed = 7.5f;
-			float yetiClose = Mathf.Clamp(-1f, yetiN.minFloatValue, yetiN.maxFloatValue);
-			yetiNMat.SetFloat("_VignettePower", yetiClose);
+			float normalizedDistance = Mathf.Clamp01(distanceToPlayer / 5f);
+			float yetiClose = Mathf.Lerp(yetiN.minFloatValue, yetiN.maxFloatValue, normalizedDistance);
+			Debug.Log("Yeti Close:" + yetiClose);
+			yetiN.material.SetFloat("_VignettePower", yetiClose);
 			target = playerController.movePoint.transform.position;
 
 		}
@@ -154,6 +158,7 @@ public class Yeti : MonoBehaviour
 	public void ResetPosition() 
 	{
 		StartCoroutine(DelayChase());
+		yetiN.material.SetFloat("_VignettePower", yetiN.maxFloatValue);
 	}
 	
 	public IEnumerator DelayChase()
