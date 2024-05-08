@@ -19,9 +19,28 @@ public class MainMenu : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		if (PlayerPrefs.GetInt("MusicEnabled", 1) == 1) 
+		{
+			MusicButton.text = "On";
+			Main_Music.Play();
+		}
+		else 
+		{
+			MusicButton.text = "Off";
+			Main_Music.Stop();
+		}
+		if (PlayerPrefs.GetInt("SFXEnabled", 1) == 1) 
+		{
+			SoundButton.text = "On";
+			Wind_Sound.Play();
+		}
+		else 
+		{
+			SoundButton.text = "Off";
+			Wind_Sound.Stop();
+		}
+		
 		OptionsMenu.SetActive(false);
-		Main_Music.Stop();
-		Wind_Sound.Stop();
 	}
 
 	// Run the game

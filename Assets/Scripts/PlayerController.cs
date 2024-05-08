@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
 			}
 
 			// Wait for 5 seconds
-			yield return new WaitForSeconds(5f);
+			yield return new WaitForSeconds(4f);
 		}
 	}
 	
@@ -203,8 +203,15 @@ public class PlayerController : MonoBehaviour
 		// Win condition
 		if (collision.gameObject.CompareTag("WinZone")) 
 		{
-            gameManager.Victory();
+			gameManager.Victory();
 			
+		}
+		
+		// Reset wander points when crossing between areas
+		if (collision.gameObject.CompareTag("WanderReset")) 
+		{
+			yeti.WanderResetRoar();
+			ClearWanderPoints();
 		}
 	}
 }
