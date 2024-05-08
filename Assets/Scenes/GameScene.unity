@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12256,6 +12256,7 @@ GameObject:
   - component: {fileID: 351140278}
   - component: {fileID: 351140277}
   - component: {fileID: 351140276}
+  - component: {fileID: 351140280}
   m_Layer: 0
   m_Name: GameOverMenu
   m_TagString: Untagged
@@ -12346,6 +12347,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &351140280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351140275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b1e217d442d264faa3e613b5cd010b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreTxt: {fileID: 1531026683}
+  highscoreTxt: {fileID: 1373266391}
+  playerNameTxt: {fileID: 0}
+  submitHSBtn: {fileID: 0}
 --- !u!1 &393832062
 GameObject:
   m_ObjectHideFlags: 0
@@ -24624,8 +24641,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1844621107}
-        m_TargetAssemblyTypeName: ScoreManagerExpanded, Assembly-CSharp
+      - m_Target: {fileID: 1803041045}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
         m_MethodName: NewHigh
         m_Mode: 1
         m_Arguments:
@@ -39046,6 +39063,7 @@ GameObject:
   - component: {fileID: 1435057117}
   - component: {fileID: 1435057116}
   - component: {fileID: 1435057121}
+  - component: {fileID: 1435057120}
   m_Layer: 5
   m_Name: HUD Canvas
   m_TagString: Untagged
@@ -39136,6 +39154,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1435057120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435057114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b1e217d442d264faa3e613b5cd010b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreTxt: {fileID: 1753990579}
+  highscoreTxt: {fileID: 1768442268}
+  playerNameTxt: {fileID: 0}
+  submitHSBtn: {fileID: 0}
 --- !u!114 &1435057121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42149,6 +42183,7 @@ GameObject:
   - component: {fileID: 1803041043}
   - component: {fileID: 1803041042}
   - component: {fileID: 1803041041}
+  - component: {fileID: 1803041045}
   m_Layer: 0
   m_Name: VictoryMenu
   m_TagString: Untagged
@@ -42239,6 +42274,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1803041045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803041040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b1e217d442d264faa3e613b5cd010b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreTxt: {fileID: 97996312}
+  highscoreTxt: {fileID: 1676731370}
+  playerNameTxt: {fileID: 32553672}
+  submitHSBtn: {fileID: 610441148}
 --- !u!1 &1826533767
 GameObject:
   m_ObjectHideFlags: 0
@@ -42324,7 +42375,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1844621106}
-  - component: {fileID: 1844621107}
   m_Layer: 0
   m_Name: Menus
   m_TagString: Untagged
@@ -42351,26 +42401,6 @@ Transform:
   - {fileID: 1435057119}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1844621107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844621104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33da1deca3f292a46acc02102d499ac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HUDScoreTxt: {fileID: 1753990579}
-  HUDHighscoreTxt: {fileID: 1768442268}
-  VScoreTxt: {fileID: 97996312}
-  VHighscoreTxt: {fileID: 1676731370}
-  submitHSBtn: {fileID: 610441148}
-  playerNameTxt: {fileID: 32553672}
-  GOScoreTxt: {fileID: 1531026683}
-  GOHighscoreTxt: {fileID: 1373266391}
 --- !u!1 &1846360122
 GameObject:
   m_ObjectHideFlags: 0

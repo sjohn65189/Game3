@@ -75,13 +75,12 @@ public class GameManager : MonoBehaviour
 	
 	public void Victory() 
 	{
-		//add time to HUDscore when you win
+		//add time to score when you win
 		ScoreManager.instance.AddTimeToScore((int)Timer.instance.elapsedTime);
 		//stop timer in background
 		Timer.instance.StopTimer();
 
         VictoryMenu.SetActive(true);
 		Yeti.SetActive(false);
-
-    }
+	}
 }
