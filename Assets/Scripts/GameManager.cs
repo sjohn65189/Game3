@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
 	public void Victory() 
 	{
 		//add time to HUDscore when you win
-		ScoreManager.instance.AddTimeToScore((int)Timer.instance.elapsedTime);
+		//ScoreManager.instance.AddTimeToScore((int)Timer.instance.elapsedTime);
 		//stop timer in background
 		Timer.instance.StopTimer();
 

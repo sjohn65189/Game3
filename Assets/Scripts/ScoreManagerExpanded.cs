@@ -57,6 +57,7 @@ public class ScoreManagerExpanded : MonoBehaviour
         this.GOHighscoreTxt.text = "Highscore:\n" + highscore.ToString("D4");
         this.GOScoreTxt.text = "Score:\n" + score.ToString("D4");
 
+        score++;
     }
 
     //for storing new highscores
