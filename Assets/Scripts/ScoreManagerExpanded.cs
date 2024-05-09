@@ -67,7 +67,7 @@ public class ScoreManagerExpanded : MonoBehaviour
     //PlayerPrefs.SetInt("highscore", score);
 
     // for getting points in level later on
-    void GetRelic()
+    public void GetRelic()
     {
         this.score += 40;
     }

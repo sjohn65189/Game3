@@ -41,6 +41,9 @@ public class Inventory : MonoBehaviour
                     audioSource.clip = pickupSound;
                     audioSource.Play();
                 }
+
+				// Add to score for picking up relic
+				ScoreManagerExpanded.instance.GetRelic();
             }
 		}
 	}
