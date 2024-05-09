@@ -193,6 +193,7 @@ public class PlayerController : MonoBehaviour
 		if (playerHealth.Health > 0) 
 		{
 			cameraShaker.intensity = 0f;
+			yetiN.material.SetFloat("_VignettePower", yetiN.maxFloatValue);
 			playerHealth.SetHealth(-25);
 			transform.position = new Vector3(0, 0, 0);
 			movePoint.transform.position = new Vector3(0, 0, 0);
@@ -212,7 +213,7 @@ public class PlayerController : MonoBehaviour
 	
 	public IEnumerator DelayChase()
 	{
-		yetiN.material.SetFloat("_VignettePower", yetiN.maxFloatValue);
+//		yetiN.material.SetFloat("_VignettePower", yetiN.maxFloatValue);
 		yeti.gameObject.SetActive(false);
 		yeti.gameObject.transform.position = new Vector3(-1, 0, 0);
 		yield return new WaitForSeconds(5f);
