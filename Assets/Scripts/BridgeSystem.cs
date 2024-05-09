@@ -26,9 +26,11 @@ public class BridgeSystem : MonoBehaviour
 	private bool counted = false;
 	private NavMeshSurface navMeshSurface; //reference to the NavMeshSurface component
 	private Rigidbody2D plankRigidbody; // Reference to the Rigidbody2D component
+	private int SFXEnabled;
 
 	private void Start()
 	{
+		SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
 		input = new PlayerInputActions();
 		input.Enable();
 		
@@ -54,7 +56,7 @@ public class BridgeSystem : MonoBehaviour
 		if (input.PlayerActions.PickUpItem.IsPressed() && hasCollided && !counted)
 		{
 			// Play the pickup sound
-			if (pickupSound != null && audioSource != null)
+			if (pickupSound != null && audioSource != null && SFXEnabled == 1)
 			{
 				audioSource.clip = pickupSound;
 				audioSource.Play();
@@ -95,15 +97,15 @@ public class BridgeSystem : MonoBehaviour
 		}
 	}
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            hasCollided = false;
-        }
-    }
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Player"))
+		{
+			hasCollided = false;
+		}
+	}
 
-    private void MoveToTargetTile()
+	private void MoveToTargetTile()
 	{
 		// Move the item to the target tile position
 		Vector3 targetWorldPosition = groundTilemap.GetCellCenterWorld(targetTilePosition);

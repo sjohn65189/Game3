@@ -36,8 +36,11 @@ public class PlayerController : MonoBehaviour
 	public GameObject yetiNearby;
 	YetiClose yetiN;
 	
+	private int SFXEnabled;
+	
 	void Start()
 	{
+		SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
 		playerHealth = GetComponent<PlayerHealth>();
 		navSurface.hideEditorLogs = true;
 		movePoint.parent = null;
@@ -140,7 +143,11 @@ public class PlayerController : MonoBehaviour
 		//playerCurrentTile = groundTilemap.GetTile<Tile>(Vector3Int.FloorToInt(movePoint.position));
 		if (didMove) 
 		{
-			PlayFootstepSound();
+			if (SFXEnabled == 1) 
+			{
+				PlayFootstepSound();
+			}
+			
 			if (groundOverlayTilemap.GetTile<Tile>(Vector3Int.FloorToInt(movePoint.position)) != null) 
 			{
 				groundOverlayTilemap.SetTile(Vector3Int.FloorToInt(movePoint.position), null);

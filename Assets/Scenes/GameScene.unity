@@ -24988,6 +24988,11 @@ PrefabInstance:
       objectReference: {fileID: 973305573}
     - target: {fileID: 2524783313750665977, guid: ffcd7bd74e55813489953158051c26f0,
         type: 3}
+      propertyPath: stompingSound
+      value: 
+      objectReference: {fileID: 973305584}
+    - target: {fileID: 2524783313750665977, guid: ffcd7bd74e55813489953158051c26f0,
+        type: 3}
       propertyPath: wanderResetRoar
       value: 
       objectReference: {fileID: 973305582}

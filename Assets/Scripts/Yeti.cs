@@ -10,6 +10,7 @@ public class Yeti : MonoBehaviour
 	public LayerMask snowLayer;
 	public AudioClip yetiSound;
 	public AudioSource audioSource;
+	public AudioSource stompingSound;
 	
 	public AudioSource wanderResetRoar;
 
@@ -26,6 +27,7 @@ public class Yeti : MonoBehaviour
 	
 	// Debug variable
 	private bool isDebug = false;
+	private int SFXEnabled;
 
 	public GameObject yetiNearby;
 	YetiClose yetiN;
@@ -34,6 +36,12 @@ public class Yeti : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
+		if (SFXEnabled != 1) 
+		{
+			stompingSound.mute = true;
+		}
+		
 		target = player.transform.position;
 		agent = GetComponent<NavMeshAgent>();
 		agent.updateRotation = false;
@@ -68,7 +76,7 @@ public class Yeti : MonoBehaviour
 		agent.SetDestination(target);
 
 		// Play the Yeti sound with delay
-		if (canSeePlayer && canPlaySound && yetiSound != null && audioSource != null)
+		if (canSeePlayer && canPlaySound && yetiSound != null && audioSource != null && SFXEnabled == 1)
 		{
 			StartCoroutine(PlaySoundWithDelay(yetiSoundDelay));
 		}
@@ -114,7 +122,7 @@ public class Yeti : MonoBehaviour
 			agent.speed = 7.5f;
 			float normalizedDistance = Mathf.Clamp01(distanceToPlayer / 5f);
 			float yetiClose = Mathf.Lerp(yetiN.minFloatValue, yetiN.maxFloatValue, normalizedDistance);
-			Debug.Log("Yeti Close:" + yetiClose);
+			//Debug.Log("Yeti Close:" + yetiClose);
 			yetiN.material.SetFloat("_VignettePower", yetiClose);
 			target = playerController.movePoint.transform.position;
 
@@ -171,6 +179,9 @@ public class Yeti : MonoBehaviour
 	// Roar when player crosses a wander reset zone (yeti sound 3)
 	public void WanderResetRoar() 
 	{
-		wanderResetRoar.Play();
+		if (SFXEnabled == 1) 
+		{
+			wanderResetRoar.Play();
+		}
 	}
 }
