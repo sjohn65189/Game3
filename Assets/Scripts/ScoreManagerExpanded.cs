@@ -34,6 +34,7 @@ public class ScoreManagerExpanded : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //this gets the highscore from player prefs but sets it to 8000 if no score is found
         highscore = PlayerPrefs.GetInt("highscore", 8000);
         HS.Init(this, "Ice Monk");
     }
@@ -44,6 +45,7 @@ public class ScoreManagerExpanded : MonoBehaviour
         //see if new highscore
         if (score > highscore)
         {
+            PlayerPrefs.SetInt("highscore", score);
             highscore = PlayerPrefs.GetInt("highscore", score);
         }
 
