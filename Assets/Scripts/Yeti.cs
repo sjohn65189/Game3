@@ -99,7 +99,7 @@ public class Yeti : MonoBehaviour
 			float normalizedDistance = Mathf.Clamp01(distanceToPlayer / 5f);
 			float yetiAway = Mathf.Lerp(yetiN.minFloatValue, yetiN.maxFloatValue, normalizedDistance);
 			yetiN.material.SetFloat("_VignettePower", yetiAway);
-			Debug.Log("Yeti Away:" + yetiAway);
+			//Debug.Log("Yeti Away:" + yetiAway);
 			agent.speed = 5.5f;
 			// Collision with snow detected
 			if (isDebug) 
