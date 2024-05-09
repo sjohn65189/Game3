@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
 	[HideInInspector]public Tile playerCurrentTile;
 	private Sprite flatSnowSprite;
+	public GameObject yetiNearby;
+	YetiClose yetiN;
 	
 	void Start()
 	{
@@ -50,6 +52,9 @@ public class PlayerController : MonoBehaviour
 				audioSource = gameObject.AddComponent<AudioSource>();
 			}
 		}
+
+		yetiNearby = GameObject.Find("YetiNearbyMaterial");
+		yetiN = yetiNearby.GetComponent<YetiClose>();
 	}
 
 	void Awake()
@@ -207,6 +212,7 @@ public class PlayerController : MonoBehaviour
 	
 	public IEnumerator DelayChase()
 	{
+		yetiN.material.SetFloat("_VignettePower", yetiN.maxFloatValue);
 		yeti.gameObject.SetActive(false);
 		yeti.gameObject.transform.position = new Vector3(-1, 0, 0);
 		yield return new WaitForSeconds(5f);

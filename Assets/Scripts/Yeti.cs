@@ -158,7 +158,6 @@ public class Yeti : MonoBehaviour
 	public void ResetPosition() 
 	{
 		StartCoroutine(DelayChase());
-		yetiN.material.SetFloat("_VignettePower", yetiN.maxFloatValue);
 	}
 	
 	public IEnumerator DelayChase()
