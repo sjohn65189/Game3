@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -667,6 +667,8 @@ MonoBehaviour:
   - {fileID: 328507363}
   - {fileID: 1870961047}
   - {fileID: 2030049777}
+  pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
+  audioSource: {fileID: 852603607}
 --- !u!50 &50970642
 Rigidbody2D:
   serializedVersion: 4
@@ -41410,6 +41412,8 @@ MonoBehaviour:
   - {fileID: 328507363}
   - {fileID: 1870961047}
   - {fileID: 2030049777}
+  pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
+  audioSource: {fileID: 852603607}
 --- !u!50 &1700529519
 Rigidbody2D:
   serializedVersion: 4
@@ -43316,6 +43320,8 @@ MonoBehaviour:
   - {fileID: 328507363}
   - {fileID: 1870961047}
   - {fileID: 2030049777}
+  pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
+  audioSource: {fileID: 852603607}
 --- !u!50 &1929964158
 Rigidbody2D:
   serializedVersion: 4

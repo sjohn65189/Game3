@@ -12,10 +12,15 @@ public class Inventory : MonoBehaviour
 	public string itemName; //Name of Item
 	public Image[] uiSprites; // Array of UI sprites to display collected items
 
-	void Start() 
+    public AudioClip pickupSound; // Add this field to hold the pickup sound
+    public AudioSource audioSource; // Add this field to reference the AudioSource component
+    void Start() 
 	{
 		input = new PlayerInputActions();
 		input.Enable();
+
+		//Reset items list when the game is reset
+		ResetCollectedItems();
 	}
 	
 	private void OnDisable()
@@ -30,7 +35,13 @@ public class Inventory : MonoBehaviour
 			if (input.PlayerActions.PickUpItem.IsPressed()) 
 			{
 				CollectItem();
-			}
+                // Play the pickup sound
+                if (pickupSound != null && audioSource != null)
+                {
+                    audioSource.clip = pickupSound;
+                    audioSource.Play();
+                }
+            }
 		}
 	}
 
@@ -66,5 +77,11 @@ public class Inventory : MonoBehaviour
 			// Assign the collected item sprite to the corresponding UI sprite
 			uiSprites[i].sprite = itemSprite;
 		}
+	}
+
+	void ResetCollectedItems() 
+	{
+		//clear collected items list when game is restarted
+		collectedItems.Clear();
 	}
 }

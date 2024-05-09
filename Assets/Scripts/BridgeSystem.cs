@@ -92,11 +92,18 @@ public class BridgeSystem : MonoBehaviour
 		if (collision.gameObject.CompareTag("Player") && !hasCollided)
 		{
 			hasCollided=true;
-			
 		}
 	}
 
-	private void MoveToTargetTile()
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            hasCollided = false;
+        }
+    }
+
+    private void MoveToTargetTile()
 	{
 		// Move the item to the target tile position
 		Vector3 targetWorldPosition = groundTilemap.GetCellCenterWorld(targetTilePosition);
