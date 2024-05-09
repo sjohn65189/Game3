@@ -25909,6 +25909,11 @@ PrefabInstance:
       objectReference: {fileID: 729515337}
     - target: {fileID: 2246106509343293814, guid: 52dc98257bcc88a47b61e2238b648bb7,
         type: 3}
+      propertyPath: yetiNearby
+      value: 
+      objectReference: {fileID: 1208331837}
+    - target: {fileID: 2246106509343293814, guid: 52dc98257bcc88a47b61e2238b648bb7,
+        type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 783314330}
@@ -37498,7 +37503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1208331838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37512,7 +37517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: b2cf2190f373f3e498ded0d97706996d, type: 2}
-  maxFloatValue: 8
+  maxFloatValue: 3
   minFloatValue: 0.2
 --- !u!4 &1208331839
 Transform:

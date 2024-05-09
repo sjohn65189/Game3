@@ -18,9 +18,10 @@ public class YetiClose : MonoBehaviour
     {
         
     }
-
+/*
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
+*/
 }

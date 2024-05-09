@@ -213,7 +213,6 @@ public class PlayerController : MonoBehaviour
 	
 	public IEnumerator DelayChase()
 	{
-//		yetiN.material.SetFloat("_VignettePower", yetiN.maxFloatValue);
 		yeti.gameObject.SetActive(false);
 		yeti.gameObject.transform.position = new Vector3(-1, 0, 0);
 		yield return new WaitForSeconds(5f);
