@@ -32,7 +32,6 @@ public class Timer : MonoBehaviour
 
     public void StartTimer()
     {
-        elapsedTime = 0;
         timerIsOn = true;
     }
 

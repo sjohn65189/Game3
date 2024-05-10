@@ -77,6 +77,25 @@ public class ScoreManagerExpanded : MonoBehaviour
         this.score += 9999 - deltaTime;
     }
 
+    //time multiplier for score
+    public void TimeMultiplier(float time)
+    {
+        float multiplier = 1;
+        if (time >= 250)
+        {
+            multiplier = 1;
+        }
+
+        if (time < 250)
+        {
+            multiplier = Mathf.Lerp(1, 3, (1 - (time / 250)));
+        }
+
+        this.score = (int)(score * multiplier);
+
+        
+    }
+
     //check if new highscore
     public void NewHigh()
     {
