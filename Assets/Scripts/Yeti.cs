@@ -179,6 +179,9 @@ public class Yeti : MonoBehaviour
 	// Roar when player crosses a wander reset zone (yeti sound 3)
 	public void WanderResetRoar() 
 	{
+		// Set target back to player
+		agent.SetDestination(player.transform.position);
+		
 		if (SFXEnabled == 1) 
 		{
 			wanderResetRoar.Play();
