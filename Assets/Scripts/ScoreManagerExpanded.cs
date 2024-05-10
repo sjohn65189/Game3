@@ -72,11 +72,6 @@ public class ScoreManagerExpanded : MonoBehaviour
         this.score += 40;
     }
 
-    public void AddTimeToScore(int deltaTime)
-    {
-        this.score += 9999 - deltaTime;
-    }
-
     //time multiplier for score
     public void TimeMultiplier(float time)
     {
