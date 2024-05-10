@@ -180,11 +180,14 @@ public class Yeti : MonoBehaviour
 	public void WanderResetRoar() 
 	{
 		// Set target back to player
-		agent.SetDestination(player.transform.position);
-		
-		if (SFXEnabled == 1) 
+		if (gameObject.activeSelf) 
 		{
-			wanderResetRoar.Play();
+			agent.SetDestination(player.transform.position);
+			
+			if (SFXEnabled == 1) 
+			{
+				wanderResetRoar.Play();
+			}
 		}
 	}
 }
