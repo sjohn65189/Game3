@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
 
         VictoryMenu.SetActive(true);
 		Yeti.SetActive(false);
+		Player.SetActive(false);
 
     }
 }
