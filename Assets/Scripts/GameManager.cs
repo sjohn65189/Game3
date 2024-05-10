@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows;
 
 public class GameManager : MonoBehaviour
 {
 	public GameObject VictoryMenu;
 	public GameObject GameOverMenu;
-	public GameObject Yeti;
+    public GameObject pauseMenu;
+    public GameObject Yeti;
 	public GameObject Player;
-	public PlayerController playerController;
+    public PlayerController playerController;
 	
 	public AudioSource Main_Music;
 	public AudioSource Wind_Sound;
-	
-	void Start()
+
+    void Start()
 	{
 		// Check if music and sound effects are enabled. If no value is set, return 1
 		int musicEnabled = PlayerPrefs.GetInt("MusicEnabled", 1);
@@ -34,12 +36,11 @@ public class GameManager : MonoBehaviour
 	void Awake() 
 	{
 		playerController.YetiStart(); // This delays the yeti chase
-	}
-
-	void Update()
+    }
+    void Update()
 	{
-		
-	}
+  
+    }
 	
 	// return to the Main menu
 	public void MainMenuButtonClicked()
@@ -72,8 +73,15 @@ public class GameManager : MonoBehaviour
         GameOverMenu.SetActive(true);
 		Player.SetActive(false);
 	}
-	
-	public void Victory() 
+    public void ResumeButtonClicked()
+    {
+        pauseMenu.SetActive(false);
+        Yeti.SetActive(true);
+        Player.SetActive(true);
+        Timer.instance.StartTimer();
+    }
+
+    public void Victory() 
 	{
 		//use time multiplier for score
 		ScoreManagerExpanded.instance.TimeMultiplier((int)Timer.instance.elapsedTime);

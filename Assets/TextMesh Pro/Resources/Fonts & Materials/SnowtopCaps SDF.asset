@@ -147,7 +147,7 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -172,8 +172,8 @@ MonoBehaviour:
   material: {fileID: -5281800087879263736}
   materialHashCode: 83375710
   m_Version: 1.1.0
-  m_SourceFontFileGUID: aa3f042dab169a241b6b222a41eb233f
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: aa3f042dab169a241b6b222a41eb233f,
+  m_SourceFontFileGUID: b380da6fb8af9144192aef2e2baf61e9
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: b380da6fb8af9144192aef2e2baf61e9,
     type: 3}
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0

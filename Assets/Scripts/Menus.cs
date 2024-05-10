@@ -4,13 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Windows;
 
 public class Menus : MonoBehaviour
 {
-	public GameObject MainMenu;
+
+    [HideInInspector] public PlayerInputActions input;
+
+    public GameObject MainMenu;
 	public GameObject OptionsMenu;
 	public GameObject VictoryMenu;
 	public GameObject GameOverMenu;
+	public GameObject PauseMenu;
 	public GameObject Game;
 	public GameObject Yeti;
 	public GameObject Player;
@@ -30,18 +35,23 @@ public class Menus : MonoBehaviour
 
 	private bool gameMusicEnabled = false;
     private bool gameSoundsEnabled = false;
+	private bool isPaused = false;
     // Start is called before the first frame update
     void Start()
 	{
 		OptionsMenu.SetActive(false);
 		VictoryMenu.SetActive(false);
 		GameOverMenu.SetActive(false);
+		PauseMenu.SetActive(false);
 		Game.SetActive(false);
 		Main_Music.Stop();
 		wind.Stop();
         pickUp.Stop();
         yeti.Stop();
         footsteps.Stop();
+
+        input = new PlayerInputActions();
+        input.Enable();
     }
 
 	// run the game
@@ -63,8 +73,22 @@ public class Menus : MonoBehaviour
             pickUp.Play();
             footsteps.Play();
         }
+		if (input.PlayerActions.TogglePause.IsPressed()) 
+		{
+			PauseMenuIsToggled();
+
+        }
     }
-	
+	//Resume button
+	public void ResumeButtonClicked() 
+	{
+        Time.timeScale = 1f; //pause the game
+        PauseMenu.SetActive(false);
+        Yeti.SetActive(true);
+        Player.SetActive(true);
+        Timer.instance.StartTimer();
+    }
+
 	// open the options menu
 	public void OptionsButtonClicked(){
 		MainMenu.SetActive(false);
@@ -123,6 +147,20 @@ public class Menus : MonoBehaviour
 			SoundButton.text = "Off";
             gameSoundsEnabled = false;
         }
+	}
+
+	public void PauseMenuIsToggled() 
+	{
+		isPaused = !isPaused;
+
+		if (isPaused)
+		{
+			Time.timeScale = 0f; //pause the game
+			PauseMenu.SetActive(true);
+			Yeti.SetActive(false);
+			Player.SetActive(false);
+			Timer.instance.StopTimer();
+		}
 	}
 
 }
