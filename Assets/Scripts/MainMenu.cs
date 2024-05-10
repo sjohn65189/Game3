@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
 {
 	public GameObject StartMenu;
 	public GameObject OptionsMenu;
+	public GameObject TutorialMenu;
 	public TMP_Text MusicButton;
 	public TMP_Text SoundButton;
 
@@ -40,14 +41,22 @@ public class MainMenu : MonoBehaviour
 		}
 		
 		OptionsMenu.SetActive(false);
+		TutorialMenu.SetActive(false);
+	}
+
+	// Open Tutorial Menu
+	public void StartButtonClicked()
+	{
+		StartMenu.SetActive(false);
+		TutorialMenu.SetActive(true);
 	}
 
 	// Run the game
-	public void StartButtonClicked()
+	public void PlayButtonClicked()
 	{
 		// Load game
 		SceneManager.LoadScene("GameScene");
-    }
+	}
 	
 	// Open the options menu
 	public void OptionsButtonClicked()
