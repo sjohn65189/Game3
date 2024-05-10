@@ -91,6 +91,12 @@ public class ScoreManagerExpanded : MonoBehaviour
         
     }
 
+    //add health to score
+    public void AddHealthToScore(int health)
+    {
+        this.score += health;
+    }
+
     //check if new highscore
     public void NewHigh()
     {
