@@ -7,8 +7,7 @@ public class PauseMenu : MonoBehaviour
     [HideInInspector] public PlayerInputActions input;
     public GameObject pauseMenu;
     public GameObject Yeti;
-    public GameObject Player;
-    private bool isPaused = false;
+    public PlayerController Player;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,13 +27,9 @@ public class PauseMenu : MonoBehaviour
     }
     public void PauseMenuIsToggled()
     {
-        isPaused = true;
-        if (isPaused)
-        {
-            pauseMenu.SetActive(true);
-            Yeti.SetActive(false);
-            Player.SetActive(false);
-            Timer.instance.StopTimer();
-        }
+        pauseMenu.SetActive(true);
+        Yeti.SetActive(false);
+        Player.input.Disable();
+        Timer.instance.StopTimer();
     }
 }

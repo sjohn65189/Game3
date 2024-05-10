@@ -7,11 +7,12 @@ using UnityEngine.Windows;
 
 public class GameManager : MonoBehaviour
 {
-	public GameObject VictoryMenu;
+    [HideInInspector] public PlayerInputActions input;
+    public GameObject VictoryMenu;
 	public GameObject GameOverMenu;
     public GameObject pauseMenu;
     public GameObject Yeti;
-	public GameObject Player;
+	public PlayerController Player;
     public PlayerController playerController;
 	
 	public AudioSource Main_Music;
@@ -19,8 +20,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
 	{
-		// Check if music and sound effects are enabled. If no value is set, return 1
-		int musicEnabled = PlayerPrefs.GetInt("MusicEnabled", 1);
+        input = new PlayerInputActions();
+        input.Enable();
+
+        // Check if music and sound effects are enabled. If no value is set, return 1
+        int musicEnabled = PlayerPrefs.GetInt("MusicEnabled", 1);
 		int SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
 		
 		if (musicEnabled == 1) 
@@ -71,13 +75,14 @@ public class GameManager : MonoBehaviour
         Timer.instance.StopTimer();
 
         GameOverMenu.SetActive(true);
-		Player.SetActive(false);
+		Player.gameObject.SetActive(false);
 	}
     public void ResumeButtonClicked()
     {
+		
         pauseMenu.SetActive(false);
         Yeti.SetActive(true);
-        Player.SetActive(true);
+		Player.input.Enable();
         Timer.instance.StartTimer();
     }
 
@@ -91,7 +96,7 @@ public class GameManager : MonoBehaviour
 
         VictoryMenu.SetActive(true);
 		Yeti.SetActive(false);
-		Player.SetActive(false);
+		Player.gameObject.SetActive(false);
 
     }
 }

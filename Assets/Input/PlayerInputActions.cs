@@ -75,7 +75,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Toggle Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""1e9e6851-0ae5-44fc-93fd-95104eda2764"",
+                    ""id"": ""c74bbbe4-f067-4030-92a6-be1cc2a6d808"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -283,8 +283,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dfdb53a1-c501-4b1a-9e83-9b578e951fdb"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""31e6eb39-3566-4d01-845d-c8a81153e172"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

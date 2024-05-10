@@ -40,7 +40,9 @@ public class PlayerController : MonoBehaviour
 	
 	void Start()
 	{
-		SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
+        input = new PlayerInputActions();
+        input.Enable();
+        SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
 		playerHealth = GetComponent<PlayerHealth>();
 		navSurface.hideEditorLogs = true;
 		movePoint.parent = null;
@@ -63,8 +65,7 @@ public class PlayerController : MonoBehaviour
 	void Awake()
 	{
 		wanderPoints = new List<Vector3>();
-		input = new PlayerInputActions();
-		input.Enable();
+		
 
 		playerCurrentTile = groundTilemap.GetTile<Tile>(Vector3Int.FloorToInt(movePoint.position));
 		
