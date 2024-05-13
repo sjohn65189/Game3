@@ -105,7 +105,7 @@ public class Yeti : MonoBehaviour
 		{
 			canSeePlayer = false;
 			float normalizedDistance = Mathf.Clamp01(distanceToPlayer / 5f);
-			float yetiAway = Mathf.Lerp(yetiN.minFloatValue, yetiN.maxFloatValue, normalizedDistance);
+			float yetiAway = Mathf.Lerp(yetiN.minFloatValue, yetiN.maxFloatValue, normalizedDistance + 0.1f);
 			yetiN.material.SetFloat("_VignettePower", yetiAway);
 			//Debug.Log("Yeti Away:" + yetiAway);
 			agent.speed = 5.5f;
@@ -121,7 +121,7 @@ public class Yeti : MonoBehaviour
 			canSeePlayer = true;
 			agent.speed = 7.5f;
 			float normalizedDistance = Mathf.Clamp01(distanceToPlayer / 5f);
-			float yetiClose = Mathf.Lerp(yetiN.minFloatValue, yetiN.maxFloatValue, normalizedDistance);
+			float yetiClose = Mathf.Lerp(yetiN.minFloatValue, yetiN.maxFloatValue, normalizedDistance - 0.1f);
 			//Debug.Log("Yeti Close:" + yetiClose);
 			yetiN.material.SetFloat("_VignettePower", yetiClose);
 			target = playerController.movePoint.transform.position;
