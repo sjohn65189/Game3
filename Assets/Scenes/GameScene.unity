@@ -45580,7 +45580,7 @@ GameObject:
   - component: {fileID: 1929964158}
   - component: {fileID: 1929964157}
   m_Layer: 0
-  m_Name: Artifact1
+  m_Name: horn
   m_TagString: Artifact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45613,7 +45613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8e6ced0bb85c9499ae052ba7144a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Artifact1
+  itemName: horn
   uiSprites:
   - {fileID: 1475236329}
   - {fileID: 1301082214}
@@ -45688,7 +45688,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -45834,8 +45834,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: b0a158929bb520745ba31f1d6284f5b5,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89301e2af4c991a47927aa0a1e786c22, type: 3}
   m_Color: {r: 0.9433962, g: 0.93004626, b: 0.93144417, a: 1}
   m_FlipX: 0
   m_FlipY: 0
