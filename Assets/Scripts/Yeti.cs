@@ -31,10 +31,11 @@ public class Yeti : MonoBehaviour
 
 	public GameObject yetiNearby;
 	YetiClose yetiN;
-//	Material yetiNMat;
+    //	Material yetiNMat;
 
-	// Start is called before the first frame update
-	void Start()
+
+    // Start is called before the first frame update
+    void Start()
 	{
 		SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
 		if (SFXEnabled != 1) 
@@ -175,9 +176,18 @@ public class Yeti : MonoBehaviour
 		yield return new WaitForSeconds(5f);
 		gameObject.SetActive(true);
 	}
-	
-	// Roar when player crosses a wander reset zone (yeti sound 3)
-	public void WanderResetRoar() 
+	public void StopDelayChaseCoroutine() 
+	{
+		StopCoroutine(DelayChase());
+	}
+    public void StartCoroutineFromGameManager()
+    {
+        // Start the coroutine
+        StartCoroutine(DelayChase());
+    }
+
+    // Roar when player crosses a wander reset zone (yeti sound 3)
+    public void WanderResetRoar() 
 	{
 		// Set target back to player
 		if (gameObject.activeSelf) 

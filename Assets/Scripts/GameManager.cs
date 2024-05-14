@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 	public AudioSource Main_Music;
 	public AudioSource Wind_Sound;
 
+    private Yeti yetiScript;
+
     void Start()
 	{
         input = new PlayerInputActions();
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour
 		
         pauseMenu.SetActive(false);
         Yeti.SetActive(true);
+		yetiScript.StartCoroutineFromGameManager();
 		Player.input.Enable();
         Timer.instance.StartTimer();
     }

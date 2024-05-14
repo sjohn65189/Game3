@@ -1929,7 +1929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VictoryMenu: {fileID: 1803041040}
   GameOverMenu: {fileID: 351140275}
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 1025227351}
   Yeti: {fileID: 973305570}
   Player: {fileID: 783314322}
   playerController: {fileID: 783314322}
@@ -1948,7 +1948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1025227351}
-  Yeti: {fileID: 973305570}
+  Yeti: {fileID: 0}
   Player: {fileID: 783314322}
 --- !u!1 &181996834
 GameObject:
