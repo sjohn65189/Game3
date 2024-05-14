@@ -1930,6 +1930,7 @@ MonoBehaviour:
   VictoryMenu: {fileID: 1803041040}
   GameOverMenu: {fileID: 351140275}
   pauseMenu: {fileID: 1025227351}
+  paused: 0
   Yeti: {fileID: 973305570}
   Player: {fileID: 783314322}
   playerController: {fileID: 783314322}
@@ -1950,6 +1951,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1025227351}
   Yeti: {fileID: 973305570}
   Player: {fileID: 783314322}
+  gameManager: {fileID: 158684780}
 --- !u!1 &181996834
 GameObject:
   m_ObjectHideFlags: 0
