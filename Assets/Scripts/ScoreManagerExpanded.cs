@@ -35,7 +35,7 @@ public class ScoreManagerExpanded : MonoBehaviour
     void Start()
     {
         //this gets the highscore from player prefs but sets it to 8000 if no score is found
-        highscore = PlayerPrefs.GetInt("highscore", 8000);
+        highscore = PlayerPrefs.GetInt("highscore", 0);
         HS.Init(this, "Ice Monk");
     }
 
