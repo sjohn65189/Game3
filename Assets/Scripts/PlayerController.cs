@@ -205,26 +205,13 @@ public class PlayerController : MonoBehaviour
 			playerHealth.SetHealth(-25);
 			transform.position = new Vector3(0, 0, 0);
 			movePoint.transform.position = new Vector3(0, 0, 0);
-			StartCoroutine(DelayChase());
+			gameManager.YetiStart();
 		}
 		if (playerHealth.Health <= 0) 
 		{
 			cameraShaker.intensity = 0f;
 			gameManager.Gameover();
 		}
-	}
-	
-	public void YetiStart() 
-	{
-		StartCoroutine(DelayChase());
-	}
-	
-	public IEnumerator DelayChase()
-	{
-		yeti.gameObject.SetActive(false);
-		yeti.gameObject.transform.position = new Vector3(-1, 0, 0);
-		yield return new WaitForSeconds(5f);
-		yeti.gameObject.SetActive(true);
 	}
 	
 	private void OnCollisionEnter2D(Collision2D collision) 

@@ -7,26 +7,27 @@ using UnityEngine.Windows;
 
 public class GameManager : MonoBehaviour
 {
-    [HideInInspector] public PlayerInputActions input;
-    public GameObject VictoryMenu;
+	[HideInInspector] public PlayerInputActions input;
+	public GameObject VictoryMenu;
 	public GameObject GameOverMenu;
-    public GameObject pauseMenu;
-    public GameObject Yeti;
+	public GameObject pauseMenu;
+	public bool paused = false;
+	public GameObject Yeti;
 	public PlayerController Player;
-    public PlayerController playerController;
+	public PlayerController playerController;
 	
 	public AudioSource Main_Music;
 	public AudioSource Wind_Sound;
 
-    private Yeti yetiScript;
+	private Yeti yetiScript;
 
-    void Start()
+	void Start()
 	{
-        input = new PlayerInputActions();
-        input.Enable();
+		input = new PlayerInputActions();
+		input.Enable();
 
-        // Check if music and sound effects are enabled. If no value is set, return 1
-        int musicEnabled = PlayerPrefs.GetInt("MusicEnabled", 1);
+		// Check if music and sound effects are enabled. If no value is set, return 1
+		int musicEnabled = PlayerPrefs.GetInt("MusicEnabled", 1);
 		int SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
 		
 		if (musicEnabled == 1) 
@@ -41,12 +42,13 @@ public class GameManager : MonoBehaviour
 	
 	void Awake() 
 	{
-		playerController.YetiStart(); // This delays the yeti chase
-    }
-    void Update()
+		YetiStart(); // This delays the yeti chase
+	}
+	
+	void Update()
 	{
   
-    }
+	}
 	
 	// return to the Main menu
 	public void MainMenuButtonClicked()
@@ -73,33 +75,48 @@ public class GameManager : MonoBehaviour
 	
 	public void Gameover() 
 	{
-        //stop timer in background
-        Timer.instance.StopTimer();
+		//stop timer in background
+		Timer.instance.StopTimer();
 
-        GameOverMenu.SetActive(true);
+		GameOverMenu.SetActive(true);
 		Player.gameObject.SetActive(false);
 	}
-    public void ResumeButtonClicked()
-    {
-		
-        pauseMenu.SetActive(false);
-        Yeti.SetActive(true);
-		yetiScript.StartCoroutineFromGameManager();
+	public void ResumeButtonClicked()
+	{
+		pauseMenu.SetActive(false);
+		Yeti.SetActive(true);
+		paused = false;
 		Player.input.Enable();
-        Timer.instance.StartTimer();
-    }
+		Timer.instance.StartTimer();
+	}
 
-    public void Victory() 
+	public void Victory() 
 	{
 		//use time multiplier for score
 		ScoreManagerExpanded.instance.TimeMultiplier((int)Timer.instance.elapsedTime);
 
-        //stop timer in background
-        Timer.instance.StopTimer();
+		//stop timer in background
+		Timer.instance.StopTimer();
 
-        VictoryMenu.SetActive(true);
+		VictoryMenu.SetActive(true);
 		Yeti.SetActive(false);
 		Player.gameObject.SetActive(false);
 
-    }
+	}
+	
+	public IEnumerator DelayChase()
+	{
+		Yeti.SetActive(false);
+		Yeti.transform.position = new Vector3(-1, 0, 0);
+		yield return new WaitForSeconds(5f);
+		if (!paused)
+		{
+			Yeti.SetActive(true);
+		}
+	}
+	
+	public void YetiStart() 
+	{
+		StartCoroutine(DelayChase());
+	}
 }
