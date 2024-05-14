@@ -40,9 +40,9 @@ public class PlayerController : MonoBehaviour
 	
 	void Start()
 	{
-        input = new PlayerInputActions();
-        input.Enable();
-        SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
+		input = new PlayerInputActions();
+		input.Enable();
+		SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
 		playerHealth = GetComponent<PlayerHealth>();
 		navSurface.hideEditorLogs = true;
 		movePoint.parent = null;
@@ -200,12 +200,14 @@ public class PlayerController : MonoBehaviour
 		// If health above 0, decrease by 25 otherwise gameover
 		if (playerHealth.Health > 0) 
 		{
+			
+			
 			cameraShaker.intensity = 0f;
 			yetiN.material.SetFloat("_VignettePower", yetiN.maxFloatValue);
 			playerHealth.SetHealth(-25);
 			transform.position = new Vector3(0, 0, 0);
 			movePoint.transform.position = new Vector3(0, 0, 0);
-			gameManager.YetiStart();
+			gameManager.YetiStart(); // Reset yeti
 		}
 		if (playerHealth.Health <= 0) 
 		{
