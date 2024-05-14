@@ -12,9 +12,9 @@ public class Inventory : MonoBehaviour
 	public string itemName; //Name of Item
 	public Image[] uiSprites; // Array of UI sprites to display collected items
 
-    public AudioClip pickupSound; // Add this field to hold the pickup sound
-    public AudioSource audioSource; // Add this field to reference the AudioSource component
-    void Start() 
+	public AudioClip pickupSound; // Add this field to hold the pickup sound
+	public AudioSource audioSource; // Add this field to reference the AudioSource component
+	void Start() 
 	{
 		input = new PlayerInputActions();
 		input.Enable();
@@ -35,16 +35,17 @@ public class Inventory : MonoBehaviour
 			if (input.PlayerActions.PickUpItem.IsPressed()) 
 			{
 				CollectItem();
-                // Play the pickup sound
-                if (pickupSound != null && audioSource != null)
-                {
-                    audioSource.clip = pickupSound;
-                    audioSource.Play();
-                }
+				// Play the pickup sound
+				if (pickupSound != null && audioSource != null)
+				{
+					audioSource.volume = 0.5f;
+					audioSource.clip = pickupSound;
+					audioSource.Play();
+				}
 
 				// Add to score for picking up relic
 				ScoreManagerExpanded.instance.GetRelic();
-            }
+			}
 		}
 	}
 

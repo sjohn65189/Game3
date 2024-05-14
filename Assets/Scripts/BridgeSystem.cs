@@ -58,6 +58,7 @@ public class BridgeSystem : MonoBehaviour
 			// Play the pickup sound
 			if (pickupSound != null && audioSource != null && SFXEnabled == 1)
 			{
+				audioSource.volume = 0.5f;
 				audioSource.clip = pickupSound;
 				audioSource.Play();
 			}
