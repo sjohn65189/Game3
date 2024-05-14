@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 50970642}
   - component: {fileID: 50970641}
   m_Layer: 0
-  m_Name: Artifact3
+  m_Name: staff
   m_TagString: Artifact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8e6ced0bb85c9499ae052ba7144a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Artifact3
+  itemName: staff
   uiSprites:
   - {fileID: 1475236329}
   - {fileID: 1301082214}
@@ -732,7 +732,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -878,8 +878,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 6ed4a0dde2af7b846aaa54ebccb28207,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8fd95dd2316aa74eaa64f979350e284, type: 3}
   m_Color: {r: 0.9487807, g: 0.9616316, b: 0.9716981, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -43744,7 +43743,7 @@ GameObject:
   - component: {fileID: 1700529519}
   - component: {fileID: 1700529518}
   m_Layer: 0
-  m_Name: Artifact2
+  m_Name: clothes
   m_TagString: Artifact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43777,7 +43776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8e6ced0bb85c9499ae052ba7144a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Artifact2
+  itemName: clothes
   uiSprites:
   - {fileID: 1475236329}
   - {fileID: 1301082214}
@@ -43851,8 +43850,8 @@ BoxCollider2D:
   m_Offset: {x: 0.005076289, y: 0.16057253}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -43998,8 +43997,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 816961ce22d93784eb89026b3d4770ab,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: e9ff9ec696db4fd49827bf4c0db7730b, type: 3}
   m_Color: {r: 0.941594, g: 0.9528302, b: 0.92136884, a: 1}
   m_FlipX: 0
   m_FlipY: 0
