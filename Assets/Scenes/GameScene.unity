@@ -1147,7 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8e6ced0bb85c9499ae052ba7144a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Artifact3
+  itemName: beads
   uiSprites:
   - {fileID: 1475236329}
   - {fileID: 1301082214}
@@ -1427,7 +1427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8e6ced0bb85c9499ae052ba7144a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Artifact3
+  itemName: jade_necklace
   uiSprites:
   - {fileID: 1475236329}
   - {fileID: 1301082214}
@@ -27185,7 +27185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8e6ced0bb85c9499ae052ba7144a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Artifact3
+  itemName: statue
   uiSprites:
   - {fileID: 1475236329}
   - {fileID: 1301082214}
@@ -34472,7 +34472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8e6ced0bb85c9499ae052ba7144a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Artifact3
+  itemName: pot
   uiSprites:
   - {fileID: 1475236329}
   - {fileID: 1301082214}
