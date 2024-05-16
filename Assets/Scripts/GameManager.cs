@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		BuildArea1();
+		BuildArea2();
 		
 		
 		input = new PlayerInputActions();
@@ -143,6 +144,44 @@ public class GameManager : MonoBehaviour
 
 			Vector3Int position = new Vector3Int(randomX, randomY, 0);
 			
+			// Check if there's already a collider tile at this position
+			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
+			{
+				ColliderMap.SetTile(position, RockTile);
+				placedRockTiles++;
+			}
+		}
+		
+	}
+	
+	public void BuildArea2() 
+	{
+		Vector3Int area2MinBounds = new Vector3Int(27, 16, 0);
+		Vector3Int area2MaxBounds = new Vector3Int(46, -2, 0);
+		
+		// Area where items cannot spawn
+		Vector3Int deadZoneMinBounds = new Vector3Int(27, 4, 0);
+		Vector3Int deadZoneMaxBounds = new Vector3Int(29, 0, 0);
+		
+		int numberOfRockTiles = 20;
+		int placedRockTiles = 0;
+
+		while (placedRockTiles < numberOfRockTiles)
+		{
+			int randomX;
+        	int randomY;
+        	Vector3Int position;
+
+			// Keep generating random positions until it's not in the dead zone
+			do
+			{
+				randomX = Random.Range(area2MinBounds.x, area2MaxBounds.x + 1);
+				randomY = Random.Range(area2MinBounds.y, area2MaxBounds.y + 1);
+				position = new Vector3Int(randomX, randomY, 0);
+			}
+			while (position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
+				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y);
+
 			// Check if there's already a collider tile at this position
 			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
 			{
