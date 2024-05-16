@@ -63,6 +63,9 @@ public class Yeti : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		// Check if Yeti can see player
+		CheckForPlayer();
+		
 		if (Vector2.Distance(transform.position, target) <= distanceCheck) 
 		{
 			hasReachedLastPosition = true;
@@ -81,12 +84,6 @@ public class Yeti : MonoBehaviour
 		{
 			StartCoroutine(PlaySoundWithDelay(yetiSoundDelay));
 		}
-	}
-
-	void FixedUpdate() 
-	{
-		// Check if Yeti can see player
-		CheckForPlayer();
 	}
 	
 	void CheckForPlayer() 

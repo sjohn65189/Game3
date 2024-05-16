@@ -174,6 +174,34 @@ public class GameManager : MonoBehaviour
 			}
 		}
 		
+		// Planks to place
+		int numberOfPlanks = 3;
+		int placedPlanks = 0;
+		
+		while (placedPlanks < numberOfPlanks)
+		{
+			int randomX;
+			int randomY;
+			Vector3Int position;
+			
+			// Keep generating random positions until it's not in the dead zone
+			do
+			{
+				randomX = Random.Range(area1MinBounds.x, area1MaxBounds.x + 1);
+				randomY = Random.Range(area1MinBounds.y, area1MaxBounds.y + 1);
+				position = new Vector3Int(randomX, randomY, 0);
+			}
+			while (position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
+				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y);
+
+			// Check if there's already a collider tile at this position
+			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
+			{
+				planksArea1[placedPlanks].transform.position = position;
+				placedPlanks++;
+			}
+		}
+		
 	}
 	
 	public void BuildArea2() 
@@ -218,6 +246,38 @@ public class GameManager : MonoBehaviour
 				placedRockTiles++;
 			}
 		}
+		
+		// Planks to place
+		int numberOfPlanks = 4;
+		int placedPlanks = 0;
+		
+		while (placedPlanks < numberOfPlanks)
+		{
+			int randomX;
+			int randomY;
+			Vector3Int position;
+			
+			// Keep generating random positions until it's not in the dead zone
+			do
+			{
+				randomX = Random.Range(area2MinBounds.x, area2MaxBounds.x + 1);
+				randomY = Random.Range(area2MinBounds.y, area2MaxBounds.y + 1);
+				position = new Vector3Int(randomX, randomY, 0);
+			}
+			while ((position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
+				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y) ||
+				(position.x >= deadZone2MinBounds.x && position.x <= deadZone2MaxBounds.x &&
+				position.y <= deadZone2MinBounds.y && position.y >= deadZone2MaxBounds.y));
+
+			// Check if there's already a collider tile at this position
+			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
+			{
+				planksArea2[placedPlanks].transform.position = position;
+				placedPlanks++;
+			}
+		}
+		
+		
 		
 	}
 	
