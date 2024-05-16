@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
 using UnityEngine.Windows;
+using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class GameManager : MonoBehaviour
 	public PlayerController Player;
 	public PlayerController playerController;
 	
+	public Tilemap ColliderMap;
+	public Tile RockTile;
+	
 	public AudioSource Main_Music;
 	public AudioSource Wind_Sound;
 
@@ -23,6 +27,9 @@ public class GameManager : MonoBehaviour
 
 	void Start()
 	{
+		BuildArea1();
+		
+		
 		input = new PlayerInputActions();
 		input.Enable();
 
@@ -118,5 +125,31 @@ public class GameManager : MonoBehaviour
 	public void YetiStart() 
 	{
 		StartCoroutine(DelayChase());
+	}
+	
+	// Below contains the code for building each area
+	public void BuildArea1() 
+	{
+		Vector3Int area1MinBounds = new Vector3Int(3, 6, 0);
+		Vector3Int area1MaxBounds = new Vector3Int(19, -6, 0);
+		
+		int numberOfRockTiles = 14;
+		int placedRockTiles = 0;
+
+		while (placedRockTiles < numberOfRockTiles)
+		{
+			int randomX = Random.Range(area1MinBounds.x, area1MaxBounds.x + 1);
+			int randomY = Random.Range(area1MinBounds.y, area1MaxBounds.y + 1);
+
+			Vector3Int position = new Vector3Int(randomX, randomY, 0);
+			
+			// Check if there's already a collider tile at this position
+			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
+			{
+				ColliderMap.SetTile(position, RockTile);
+				placedRockTiles++;
+			}
+		}
+		
 	}
 }
