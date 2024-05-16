@@ -14,7 +14,11 @@ public class Inventory : MonoBehaviour
 
 	public AudioClip pickupSound; // Add this field to hold the pickup sound
 	public AudioSource audioSource; // Add this field to reference the AudioSource component
-	void Start() 
+
+	public GameObject FloatingTextPrefab; // This hold the floating text prefab in unity prefabs folder
+
+
+    void Start() 
 	{
 		input = new PlayerInputActions();
 		input.Enable();
@@ -45,6 +49,12 @@ public class Inventory : MonoBehaviour
 
 				// Add to score for picking up relic
 				ScoreManagerExpanded.instance.GetRelic();
+
+				// Show floating text
+				if (FloatingTextPrefab)
+				{
+					//ShowFloatingText();
+				}
 			}
 		}
 	}
@@ -87,5 +97,10 @@ public class Inventory : MonoBehaviour
 	{
 		//clear collected items list when game is restarted
 		collectedItems.Clear();
+	}
+
+	void ShowFloatingText()
+	{
+		Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);	
 	}
 }
