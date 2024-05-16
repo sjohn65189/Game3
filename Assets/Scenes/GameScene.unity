@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2495,6 +2495,28 @@ MonoBehaviour:
   playerController: {fileID: 783314322}
   ColliderMap: {fileID: 973619273}
   RockTile: {fileID: 11400000, guid: 11c709181321d9740b9cf35b180317ec, type: 2}
+  planksArea1:
+  - {fileID: 852603601}
+  - {fileID: 1463414128}
+  - {fileID: 935584595}
+  planksArea2:
+  - {fileID: 807898092}
+  - {fileID: 704108716}
+  - {fileID: 836950080}
+  - {fileID: 587270657}
+  planksArea3:
+  - {fileID: 703989745}
+  - {fileID: 34816971}
+  - {fileID: 1590265622}
+  artifacts:
+  - {fileID: 1929964155}
+  - {fileID: 1700529516}
+  - {fileID: 50970639}
+  - {fileID: 70581928}
+  - {fileID: 97397660}
+  - {fileID: 960611218}
+  - {fileID: 740838901}
+  - {fileID: 236321784}
   Main_Music: {fileID: 158684779}
   Wind_Sound: {fileID: 158684778}
 --- !u!114 &158684781

@@ -20,6 +20,12 @@ public class GameManager : MonoBehaviour
 	public Tilemap ColliderMap;
 	public Tile RockTile;
 	
+	// Planks & Artifacts
+	public List<GameObject> planksArea1;
+	public List<GameObject> planksArea2;
+	public List<GameObject> planksArea3;
+	public List<GameObject> artifacts;
+	
 	public AudioSource Main_Music;
 	public AudioSource Wind_Sound;
 
