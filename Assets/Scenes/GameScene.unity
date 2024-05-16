@@ -2535,6 +2535,8 @@ MonoBehaviour:
   Yeti: {fileID: 973305570}
   Player: {fileID: 783314322}
   gameManager: {fileID: 158684780}
+  GameOver: {fileID: 351140275}
+  WinScreen: {fileID: 1803041040}
 --- !u!1 &181996834
 GameObject:
   m_ObjectHideFlags: 0
