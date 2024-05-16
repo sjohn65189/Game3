@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 	{
 		BuildArea1();
 		BuildArea2();
+		BuildArea3();
 		
 		
 		input = new PlayerInputActions();
@@ -138,9 +139,6 @@ public class GameManager : MonoBehaviour
 		Vector3Int deadZoneMinBounds = new Vector3Int(19, 1, 0);
 		Vector3Int deadZoneMaxBounds = new Vector3Int(19, -1, 0);
 		
-		Vector3Int deadZone2MinBounds = new Vector3Int(35, 16, 0);
-		Vector3Int deadZone2MaxBounds = new Vector3Int(37, 16, 0);
-		
 		// Rock tiles to place
 		int numberOfRockTiles = 14;
 		int placedRockTiles = 0;
@@ -159,10 +157,8 @@ public class GameManager : MonoBehaviour
 				randomY = Random.Range(area1MinBounds.y, area1MaxBounds.y + 1);
 				position = new Vector3Int(randomX, randomY, 0);
 			}
-			while ((position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
-				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y) &&
-				(position.x >= deadZone2MinBounds.x && position.x <= deadZone2MaxBounds.x &&
-				position.y <= deadZone2MinBounds.y && position.y >= deadZone2MaxBounds.y));
+			while (position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
+				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y);
 
 			// Check if there's already a collider tile at this position
 			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
@@ -183,6 +179,9 @@ public class GameManager : MonoBehaviour
 		Vector3Int deadZoneMinBounds = new Vector3Int(27, 4, 0);
 		Vector3Int deadZoneMaxBounds = new Vector3Int(29, 0, 0);
 		
+		Vector3Int deadZone2MinBounds = new Vector3Int(35, 16, 0);
+		Vector3Int deadZone2MaxBounds = new Vector3Int(37, 16, 0);
+		
 		// Rock tiles to place
 		int numberOfRockTiles = 20;
 		int placedRockTiles = 0;
@@ -201,8 +200,55 @@ public class GameManager : MonoBehaviour
 				randomY = Random.Range(area2MinBounds.y, area2MaxBounds.y + 1);
 				position = new Vector3Int(randomX, randomY, 0);
 			}
-			while (position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
-				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y);
+			while ((position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
+				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y) ||
+				(position.x >= deadZone2MinBounds.x && position.x <= deadZone2MaxBounds.x &&
+				position.y <= deadZone2MinBounds.y && position.y >= deadZone2MaxBounds.y));
+
+			// Check if there's already a collider tile at this position
+			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
+			{
+				ColliderMap.SetTile(position, RockTile);
+				placedRockTiles++;
+			}
+		}
+		
+	}
+	
+	public void BuildArea3() 
+	{
+		Vector3Int area3MinBounds = new Vector3Int(29, 41, 0);
+		Vector3Int area3MaxBounds = new Vector3Int(43, 27, 0);
+		
+		// Area where items cannot spawn
+		Vector3Int deadZoneMinBounds = new Vector3Int(34, 27, 0);
+		Vector3Int deadZoneMaxBounds = new Vector3Int(38, 26, 0);
+		
+		Vector3Int deadZone2MinBounds = new Vector3Int(29, 36, 0);
+		Vector3Int deadZone2MaxBounds = new Vector3Int(29, 34, 0);
+		
+		// Rock tiles to place
+		int numberOfRockTiles = 16;
+		int placedRockTiles = 0;
+
+		// Loop until number of tiles have been placed
+		while (placedRockTiles < numberOfRockTiles)
+		{
+			int randomX;
+			int randomY;
+			Vector3Int position;
+
+			// Keep generating random positions until it's not in the dead zone
+			do
+			{
+				randomX = Random.Range(area3MinBounds.x, area3MaxBounds.x + 1);
+				randomY = Random.Range(area3MinBounds.y, area3MaxBounds.y + 1);
+				position = new Vector3Int(randomX, randomY, 0);
+			}
+			while ((position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
+				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y) ||
+				(position.x >= deadZone2MinBounds.x && position.x <= deadZone2MaxBounds.x &&
+				position.y <= deadZone2MinBounds.y && position.y >= deadZone2MaxBounds.y));
 
 			// Check if there's already a collider tile at this position
 			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
