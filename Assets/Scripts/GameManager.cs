@@ -134,16 +134,36 @@ public class GameManager : MonoBehaviour
 		Vector3Int area1MinBounds = new Vector3Int(3, 6, 0);
 		Vector3Int area1MaxBounds = new Vector3Int(19, -6, 0);
 		
+		// Area where items cannot spawn
+		Vector3Int deadZoneMinBounds = new Vector3Int(19, 1, 0);
+		Vector3Int deadZoneMaxBounds = new Vector3Int(19, -1, 0);
+		
+		Vector3Int deadZone2MinBounds = new Vector3Int(35, 16, 0);
+		Vector3Int deadZone2MaxBounds = new Vector3Int(37, 16, 0);
+		
+		// Rock tiles to place
 		int numberOfRockTiles = 14;
 		int placedRockTiles = 0;
 
+		// Loop until number of tiles have been placed
 		while (placedRockTiles < numberOfRockTiles)
 		{
-			int randomX = Random.Range(area1MinBounds.x, area1MaxBounds.x + 1);
-			int randomY = Random.Range(area1MinBounds.y, area1MaxBounds.y + 1);
+			int randomX;
+			int randomY;
+			Vector3Int position;
 
-			Vector3Int position = new Vector3Int(randomX, randomY, 0);
-			
+			// Keep generating random positions until it's not in the dead zone
+			do
+			{
+				randomX = Random.Range(area1MinBounds.x, area1MaxBounds.x + 1);
+				randomY = Random.Range(area1MinBounds.y, area1MaxBounds.y + 1);
+				position = new Vector3Int(randomX, randomY, 0);
+			}
+			while ((position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
+				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y) &&
+				(position.x >= deadZone2MinBounds.x && position.x <= deadZone2MaxBounds.x &&
+				position.y <= deadZone2MinBounds.y && position.y >= deadZone2MaxBounds.y));
+
 			// Check if there's already a collider tile at this position
 			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
 			{
@@ -163,14 +183,16 @@ public class GameManager : MonoBehaviour
 		Vector3Int deadZoneMinBounds = new Vector3Int(27, 4, 0);
 		Vector3Int deadZoneMaxBounds = new Vector3Int(29, 0, 0);
 		
+		// Rock tiles to place
 		int numberOfRockTiles = 20;
 		int placedRockTiles = 0;
 
+		// Loop until number of tiles have been placed
 		while (placedRockTiles < numberOfRockTiles)
 		{
 			int randomX;
-        	int randomY;
-        	Vector3Int position;
+			int randomY;
+			Vector3Int position;
 
 			// Keep generating random positions until it's not in the dead zone
 			do
