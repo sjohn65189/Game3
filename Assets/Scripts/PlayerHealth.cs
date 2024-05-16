@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public float Health, MaxHealth;
+    public bool developerMode;
 
     [SerializeField]
     private HealthBarUI healthBar;
@@ -24,11 +25,11 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("m")) {
+        if (Input.GetKeyDown("m") && developerMode == true) {
             SetHealth(-25f);
         }
 
-        if (Input.GetKeyDown("n")) {
+        if (Input.GetKeyDown("n") && developerMode == true) {
             SetHealth(25f);
         }
         
