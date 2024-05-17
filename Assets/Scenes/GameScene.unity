@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -670,6 +670,9 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
   FloatingTextPrefab: {fileID: 0}
+  itemPower: 0
+  yeti: {fileID: 973305581}
+  isPowerUpActive: 0
 --- !u!50 &50970642
 Rigidbody2D:
   serializedVersion: 4
@@ -1160,6 +1163,9 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
   FloatingTextPrefab: {fileID: 0}
+  itemPower: 1
+  yeti: {fileID: 973305581}
+  isPowerUpActive: 0
 --- !u!50 &70581931
 Rigidbody2D:
   serializedVersion: 4
@@ -1441,6 +1447,9 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
   FloatingTextPrefab: {fileID: 0}
+  itemPower: 1
+  yeti: {fileID: 973305581}
+  isPowerUpActive: 0
 --- !u!50 &97397663
 Rigidbody2D:
   serializedVersion: 4
@@ -2736,6 +2745,9 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
   FloatingTextPrefab: {fileID: 0}
+  itemPower: 0
+  yeti: {fileID: 973305581}
+  isPowerUpActive: 0
 --- !u!50 &236321787
 Rigidbody2D:
   serializedVersion: 4
@@ -26123,6 +26135,11 @@ PrefabInstance:
       objectReference: {fileID: 783314321}
     - target: {fileID: 2524783313750665977, guid: ffcd7bd74e55813489953158051c26f0,
         type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1929964157}
+    - target: {fileID: 2524783313750665977, guid: ffcd7bd74e55813489953158051c26f0,
+        type: 3}
       propertyPath: yetiSound
       value: 
       objectReference: {fileID: 8300000, guid: df7ffe947093c6c4591a59b695b9747f, type: 3}
@@ -27759,6 +27776,9 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
   FloatingTextPrefab: {fileID: 0}
+  itemPower: 0
+  yeti: {fileID: 973305581}
+  isPowerUpActive: 0
 --- !u!50 &740838904
 Rigidbody2D:
   serializedVersion: 4
@@ -35183,6 +35203,9 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
   FloatingTextPrefab: {fileID: 0}
+  itemPower: 0
+  yeti: {fileID: 973305581}
+  isPowerUpActive: 0
 --- !u!50 &960611221
 Rigidbody2D:
   serializedVersion: 4
@@ -44252,6 +44275,9 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
   FloatingTextPrefab: {fileID: 0}
+  itemPower: 0
+  yeti: {fileID: 973305581}
+  isPowerUpActive: 0
 --- !u!50 &1700529519
 Rigidbody2D:
   serializedVersion: 4
@@ -46227,6 +46253,9 @@ MonoBehaviour:
   audioSource: {fileID: 852603607}
   FloatingTextPrefab: {fileID: 5825115119506770175, guid: 8fde6c68b1bf7ef4eb9e25e6cb7f1751,
     type: 3}
+  itemPower: 2
+  yeti: {fileID: 973305581}
+  isPowerUpActive: 0
 --- !u!50 &1929964158
 Rigidbody2D:
   serializedVersion: 4
