@@ -107,11 +107,12 @@ public class GameManager : MonoBehaviour
 
 	public void Victory() 
 	{
-		//use time multiplier for score
-		ScoreManagerExpanded.instance.TimeMultiplier((int)Timer.instance.elapsedTime);
 
-		//stop timer in background
-		Timer.instance.StopTimer();
+        //stop timer in background
+        Timer.instance.StopTimer();
+
+        //use time multiplier for score
+        ScoreManagerExpanded.instance.TimeMultiplier((int)Timer.instance.elapsedTime);
 
 		VictoryMenu.SetActive(true);
 		Yeti.SetActive(false);
