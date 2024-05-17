@@ -82,7 +82,7 @@ public class ScoreManagerExpanded : MonoBehaviour
     }
 
     //time multiplier for score
-    public void TimeMultiplier(float time)
+    public float TimeMultiplier(float time)
     {
         float multiplier = 1;
         if (time >= 250)
@@ -97,7 +97,8 @@ public class ScoreManagerExpanded : MonoBehaviour
 
         this.score = (int)(score * multiplier);
 
-        
+        //return multiplier so that it can be displayed on victory screen
+        return multiplier;
     }
 
     //add health to score
