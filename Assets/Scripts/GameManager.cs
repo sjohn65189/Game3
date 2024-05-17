@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 	public PlayerController playerController;
 	
 	public Tilemap ColliderMap;
+	public Tilemap NonPlacementMap;
 	public Tile RockTile;
 	
 	// Planks & Artifacts
@@ -110,11 +111,11 @@ public class GameManager : MonoBehaviour
 	public void Victory() 
 	{
 
-        //stop timer in background
-        Timer.instance.StopTimer();
+		//stop timer in background
+		Timer.instance.StopTimer();
 
-        //use time multiplier for score
-        ScoreManagerExpanded.instance.TimeMultiplier((int)Timer.instance.elapsedTime);
+		//use time multiplier for score
+		ScoreManagerExpanded.instance.TimeMultiplier((int)Timer.instance.elapsedTime);
 
 		VictoryMenu.SetActive(true);
 		Yeti.SetActive(false);
@@ -139,6 +140,7 @@ public class GameManager : MonoBehaviour
 	}
 	
 	// Below contains the code for building each area
+	#region Area Item Placement
 	public void BuildArea1() 
 	{
 		Vector3Int area1MinBounds = new Vector3Int(3, 6, 0);
@@ -183,13 +185,15 @@ public class GameManager : MonoBehaviour
 		// Planks to place
 		int numberOfPlanks = 3;
 		int placedPlanks = 0;
+		List<Vector3Int> plankPositions = new List<Vector3Int>();
 		
 		while (placedPlanks < numberOfPlanks)
 		{
 			int randomX;
 			int randomY;
 			Vector3Int position;
-			Vector2 boxSize;
+			List<Vector3Int> currentPlankPositions;
+			bool canBePlaced = true;
 			
 			// Keep generating random positions until it's not in the dead zone
 			do
@@ -200,39 +204,46 @@ public class GameManager : MonoBehaviour
 			}
 			while (position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
 				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y);
-
-			
-			if (planksArea1[placedPlanks].transform.rotation.z == 90f) 
-			{
-				boxSize = new Vector2(2f, 1f);
-			}
-			else 
-			{
-				boxSize = new Vector2(1f, 2f);
-			}
 			
 			// Check if there's already a collider tile at this position
 			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
 			{
-				Collider2D collider3 = planksArea1[placedPlanks].GetComponent<Collider2D>();
-				planksArea1[placedPlanks].transform.position = new Vector3(5.0f, 0f, 0f);
-				var colliders = Physics2D.OverlapBoxAll((Vector2Int)position, boxSize, 0f, stopMovementLayer | placementLayer);
-				if (collider3.IsTouchingLayers(stopMovementLayer)) 
+				planksArea1[placedPlanks].transform.position = position;
+				
+				// Save the positions that the plank will be covering
+				if (planksArea1[placedPlanks].transform.rotation.z == 0f) 
 				{
-					print("Is touching layer");
+					currentPlankPositions = new List<Vector3Int>()
+					{
+						new Vector3Int(position.x-1, position.y),
+						position,
+						new Vector3Int(position.x+1, position.y)
+					};
+				}
+				else
+				{
+					currentPlankPositions = new List<Vector3Int>()
+					{
+						new Vector3Int(position.x, position.y-1),
+						position,
+						new Vector3Int(position.x, position.y+1)
+					};
 				}
 				
-				foreach (Collider2D collider in colliders) 
+				// If a collider or nonplacement tile exists at any plank position, we do not place the plank
+				foreach (Vector3Int plankPos in currentPlankPositions) 
 				{
-					if (collider.gameObject.name == planksArea1[placedPlanks].name) 
+					if (ColliderMap.GetColliderType(plankPos) != Tile.ColliderType.None || plankPositions.Contains(plankPos) || NonPlacementMap.GetTile(plankPos) != null) 
 					{
-						print(colliders.Length);
-						foreach(Collider2D collider2 in colliders) 
-						{
-							print(collider2.gameObject.name);
-						}
-						placedPlanks++;
+						canBePlaced = false;
 					}
+				}
+				
+				// If we place the plank, we add the position to current plank positions
+				if (canBePlaced) 
+				{
+					plankPositions.AddRange(currentPlankPositions);
+					placedPlanks++;
 				}
 			}
 		}
@@ -389,4 +400,6 @@ public class GameManager : MonoBehaviour
 			}
 		}
 	}
+	
+	#endregion
 }
