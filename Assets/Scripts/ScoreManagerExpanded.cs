@@ -19,6 +19,10 @@ public class ScoreManagerExpanded : MonoBehaviour
     [SerializeField] public Button submitHSBtn;
     [SerializeField] public TextMeshProUGUI playerNameTxt;
 
+    [SerializeField] public TextMeshProUGUI ArtifactsRetrievedTxt;
+    [SerializeField] public TextMeshProUGUI TimeBonusTxt;
+    [SerializeField] public TextMeshProUGUI TotalScoreTxt;
+
     //game over
     [SerializeField] public TextMeshProUGUI GOScoreTxt;
     [SerializeField] public TextMeshProUGUI GOHighscoreTxt; 
@@ -58,6 +62,11 @@ public class ScoreManagerExpanded : MonoBehaviour
         //update game over menu scores
         this.GOHighscoreTxt.text = "Highscore:\n" + highscore.ToString("D4");
         this.GOScoreTxt.text = "Score:\n" + score.ToString("D4");
+
+        //update victory menu score breakdown
+        this.ArtifactsRetrievedTxt.text = "Artifacts Retrieved: " + GetArtifactsGrabbed().ToString();
+        this.TimeBonusTxt.text = "Time Bonus: " + GetTimeBonus().ToString();
+        this.TotalScoreTxt.text = "Total Score: " + score.ToString("D4");
 
         //for testing 
         //score++;
@@ -102,5 +111,19 @@ public class ScoreManagerExpanded : MonoBehaviour
     {
         submitHSBtn.gameObject.SetActive(false);
         HS.SubmitHighScore(this, playerNameTxt.text, this.score);
+    }
+
+    public int GetArtifactsGrabbed()
+    {
+        int artifactsAmt = 0;
+
+        return artifactsAmt;
+    }
+
+    public int GetTimeBonus()
+    {
+        int timeBonus = 0;
+
+        return timeBonus;
     }
 }
