@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 	public List<GameObject> planksArea2;
 	public List<GameObject> planksArea3;
 	public List<GameObject> artifacts;
+	public LayerMask placementLayer;
+	public LayerMask stopMovementLayer;
 	
 	public AudioSource Main_Music;
 	public AudioSource Wind_Sound;
@@ -175,6 +177,9 @@ public class GameManager : MonoBehaviour
 			}
 		}
 		
+		// Sync the tilemap collider changes
+		ColliderMap.GetComponent<TilemapCollider2D>().ProcessTilemapChanges();
+		
 		// Planks to place
 		int numberOfPlanks = 3;
 		int placedPlanks = 0;
@@ -184,6 +189,7 @@ public class GameManager : MonoBehaviour
 			int randomX;
 			int randomY;
 			Vector3Int position;
+			Vector2 boxSize;
 			
 			// Keep generating random positions until it's not in the dead zone
 			do
@@ -195,11 +201,39 @@ public class GameManager : MonoBehaviour
 			while (position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
 				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y);
 
+			
+			if (planksArea1[placedPlanks].transform.rotation.z == 90f) 
+			{
+				boxSize = new Vector2(2f, 1f);
+			}
+			else 
+			{
+				boxSize = new Vector2(1f, 2f);
+			}
+			
 			// Check if there's already a collider tile at this position
 			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
 			{
-				planksArea1[placedPlanks].transform.position = position;
-				placedPlanks++;
+				Collider2D collider3 = planksArea1[placedPlanks].GetComponent<Collider2D>();
+				planksArea1[placedPlanks].transform.position = new Vector3(5.0f, 0f, 0f);
+				var colliders = Physics2D.OverlapBoxAll((Vector2Int)position, boxSize, 0f, stopMovementLayer | placementLayer);
+				if (collider3.IsTouchingLayers(stopMovementLayer)) 
+				{
+					print("Is touching layer");
+				}
+				
+				foreach (Collider2D collider in colliders) 
+				{
+					if (collider.gameObject.name == planksArea1[placedPlanks].name) 
+					{
+						print(colliders.Length);
+						foreach(Collider2D collider2 in colliders) 
+						{
+							print(collider2.gameObject.name);
+						}
+						placedPlanks++;
+					}
+				}
 			}
 		}
 		
@@ -325,5 +359,34 @@ public class GameManager : MonoBehaviour
 			}
 		}
 		
+		// Planks to place
+		int numberOfPlanks = 3;
+		int placedPlanks = 0;
+		
+		while (placedPlanks < numberOfPlanks)
+		{
+			int randomX;
+			int randomY;
+			Vector3Int position;
+			
+			// Keep generating random positions until it's not in the dead zone
+			do
+			{
+				randomX = Random.Range(area3MinBounds.x, area3MaxBounds.x + 1);
+				randomY = Random.Range(area3MinBounds.y, area3MaxBounds.y + 1);
+				position = new Vector3Int(randomX, randomY, 0);
+			}
+			while ((position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
+				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y) ||
+				(position.x >= deadZone2MinBounds.x && position.x <= deadZone2MaxBounds.x &&
+				position.y <= deadZone2MinBounds.y && position.y >= deadZone2MaxBounds.y));
+
+			// Check if there's already a collider tile at this position
+			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
+			{
+				planksArea3[placedPlanks].transform.position = position;
+				placedPlanks++;
+			}
+		}
 	}
 }
