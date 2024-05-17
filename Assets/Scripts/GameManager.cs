@@ -248,6 +248,49 @@ public class GameManager : MonoBehaviour
 			}
 		}
 		
+		// Artifacts to place
+		int numberOfArtifacts = 2;
+		int placedArtifacts = 0;
+		List<Vector3Int> artifactPositions = new List<Vector3Int>();
+		
+		while (placedArtifacts < numberOfArtifacts)
+		{
+			int randomX;
+			int randomY;
+			Vector3Int position;
+			bool canBePlaced = true;
+			
+			// Keep generating random positions until it's not in the dead zone
+			do
+			{
+				randomX = Random.Range(area1MinBounds.x, area1MaxBounds.x + 1);
+				randomY = Random.Range(area1MinBounds.y, area1MaxBounds.y + 1);
+				position = new Vector3Int(randomX, randomY, 0);
+			}
+			while (position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
+				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y);
+			
+			// Check if there's already a collider tile at this position
+			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
+			{
+				// We pick a random artifact to place
+				int randIndex = Random.Range(0, artifacts.Count);
+				artifacts[randIndex].transform.position = position;
+				
+				if (artifactPositions.Contains(position) || plankPositions.Contains(position) || NonPlacementMap.GetTile(position) != null) 
+				{
+					canBePlaced = false;
+				}
+				
+				// If we place the artifact, we add the position to current artifact positions
+				if (canBePlaced) 
+				{
+					artifacts.RemoveAt(randIndex);
+					artifactPositions.Add(position);
+					placedArtifacts++;
+				}
+			}
+		}
 	}
 	
 	public void BuildArea2() 
@@ -363,6 +406,52 @@ public class GameManager : MonoBehaviour
 				}
 			}
 		}
+		
+		// Artifacts to place
+		int numberOfArtifacts = 4;
+		int placedArtifacts = 0;
+		List<Vector3Int> artifactPositions = new List<Vector3Int>();
+		
+		while (placedArtifacts < numberOfArtifacts)
+		{
+			int randomX;
+			int randomY;
+			Vector3Int position;
+			bool canBePlaced = true;
+			
+			// Keep generating random positions until it's not in the dead zone
+			do
+			{
+				randomX = Random.Range(area2MinBounds.x, area2MaxBounds.x + 1);
+				randomY = Random.Range(area2MinBounds.y, area2MaxBounds.y + 1);
+				position = new Vector3Int(randomX, randomY, 0);
+			}
+			while ((position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
+				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y) ||
+				(position.x >= deadZone2MinBounds.x && position.x <= deadZone2MaxBounds.x &&
+				position.y <= deadZone2MinBounds.y && position.y >= deadZone2MaxBounds.y));
+			
+			// Check if there's already a collider tile at this position
+			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
+			{
+				// We pick a random artifact to place
+				int randIndex = Random.Range(0, artifacts.Count);
+				artifacts[randIndex].transform.position = position;
+				
+				if (artifactPositions.Contains(position) || plankPositions.Contains(position) || NonPlacementMap.GetTile(position) != null) 
+				{
+					canBePlaced = false;
+				}
+				
+				// If we place the artifact, we add the position to current artifact positions
+				if (canBePlaced) 
+				{
+					artifacts.RemoveAt(randIndex);
+					artifactPositions.Add(position);
+					placedArtifacts++;
+				}
+			}
+		}
 	}
 	
 	public void BuildArea3() 
@@ -475,6 +564,52 @@ public class GameManager : MonoBehaviour
 				{
 					plankPositions.AddRange(currentPlankPositions);
 					placedPlanks++;
+				}
+			}
+		}
+		
+		// Artifacts to place
+		int numberOfArtifacts = 2;
+		int placedArtifacts = 0;
+		List<Vector3Int> artifactPositions = new List<Vector3Int>();
+		
+		while (placedArtifacts < numberOfArtifacts)
+		{
+			int randomX;
+			int randomY;
+			Vector3Int position;
+			bool canBePlaced = true;
+			
+			// Keep generating random positions until it's not in the dead zone
+			do
+			{
+				randomX = Random.Range(area3MinBounds.x, area3MaxBounds.x + 1);
+				randomY = Random.Range(area3MinBounds.y, area3MaxBounds.y + 1);
+				position = new Vector3Int(randomX, randomY, 0);
+			}
+			while ((position.x >= deadZoneMinBounds.x && position.x <= deadZoneMaxBounds.x &&
+				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y) ||
+				(position.x >= deadZone2MinBounds.x && position.x <= deadZone2MaxBounds.x &&
+				position.y <= deadZone2MinBounds.y && position.y >= deadZone2MaxBounds.y));
+			
+			// Check if there's already a collider tile at this position
+			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
+			{
+				// We pick a random artifact to place
+				int randIndex = Random.Range(0, artifacts.Count);
+				artifacts[randIndex].transform.position = position;
+				
+				if (artifactPositions.Contains(position) || plankPositions.Contains(position) || NonPlacementMap.GetTile(position) != null) 
+				{
+					canBePlaced = false;
+				}
+				
+				// If we place the artifact, we add the position to current artifact positions
+				if (canBePlaced) 
+				{
+					artifacts.RemoveAt(randIndex);
+					artifactPositions.Add(position);
+					placedArtifacts++;
 				}
 			}
 		}
