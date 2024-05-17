@@ -293,15 +293,21 @@ public class GameManager : MonoBehaviour
 			}
 		}
 		
+		// Sync the tilemap collider changes
+		ColliderMap.GetComponent<TilemapCollider2D>().ProcessTilemapChanges();
+		
 		// Planks to place
 		int numberOfPlanks = 4;
 		int placedPlanks = 0;
+		List<Vector3Int> plankPositions = new List<Vector3Int>();
 		
 		while (placedPlanks < numberOfPlanks)
 		{
 			int randomX;
 			int randomY;
 			Vector3Int position;
+			List<Vector3Int> currentPlankPositions;
+			bool canBePlaced = true;
 			
 			// Keep generating random positions until it's not in the dead zone
 			do
@@ -314,17 +320,49 @@ public class GameManager : MonoBehaviour
 				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y) ||
 				(position.x >= deadZone2MinBounds.x && position.x <= deadZone2MaxBounds.x &&
 				position.y <= deadZone2MinBounds.y && position.y >= deadZone2MaxBounds.y));
-
+			
 			// Check if there's already a collider tile at this position
 			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
 			{
 				planksArea2[placedPlanks].transform.position = position;
-				placedPlanks++;
+				
+				// Save the positions that the plank will be covering
+				if (planksArea2[placedPlanks].transform.rotation.z == 0f) 
+				{
+					currentPlankPositions = new List<Vector3Int>()
+					{
+						new Vector3Int(position.x-1, position.y),
+						position,
+						new Vector3Int(position.x+1, position.y)
+					};
+				}
+				else
+				{
+					currentPlankPositions = new List<Vector3Int>()
+					{
+						new Vector3Int(position.x, position.y-1),
+						position,
+						new Vector3Int(position.x, position.y+1)
+					};
+				}
+				
+				// If a collider or nonplacement tile exists at any plank position, we do not place the plank
+				foreach (Vector3Int plankPos in currentPlankPositions) 
+				{
+					if (ColliderMap.GetColliderType(plankPos) != Tile.ColliderType.None || plankPositions.Contains(plankPos) || NonPlacementMap.GetTile(plankPos) != null) 
+					{
+						canBePlaced = false;
+					}
+				}
+				
+				// If we place the plank, we add the position to current plank positions
+				if (canBePlaced) 
+				{
+					plankPositions.AddRange(currentPlankPositions);
+					placedPlanks++;
+				}
 			}
 		}
-		
-		
-		
 	}
 	
 	public void BuildArea3() 
@@ -370,15 +408,21 @@ public class GameManager : MonoBehaviour
 			}
 		}
 		
+		// Sync the tilemap collider changes
+		ColliderMap.GetComponent<TilemapCollider2D>().ProcessTilemapChanges();
+		
 		// Planks to place
 		int numberOfPlanks = 3;
 		int placedPlanks = 0;
+		List<Vector3Int> plankPositions = new List<Vector3Int>();
 		
 		while (placedPlanks < numberOfPlanks)
 		{
 			int randomX;
 			int randomY;
 			Vector3Int position;
+			List<Vector3Int> currentPlankPositions;
+			bool canBePlaced = true;
 			
 			// Keep generating random positions until it's not in the dead zone
 			do
@@ -391,12 +435,47 @@ public class GameManager : MonoBehaviour
 				position.y <= deadZoneMinBounds.y && position.y >= deadZoneMaxBounds.y) ||
 				(position.x >= deadZone2MinBounds.x && position.x <= deadZone2MaxBounds.x &&
 				position.y <= deadZone2MinBounds.y && position.y >= deadZone2MaxBounds.y));
-
+			
 			// Check if there's already a collider tile at this position
 			if (ColliderMap.GetColliderType(position) == Tile.ColliderType.None)
 			{
 				planksArea3[placedPlanks].transform.position = position;
-				placedPlanks++;
+				
+				// Save the positions that the plank will be covering
+				if (planksArea3[placedPlanks].transform.rotation.z == 0f) 
+				{
+					currentPlankPositions = new List<Vector3Int>()
+					{
+						new Vector3Int(position.x-1, position.y),
+						position,
+						new Vector3Int(position.x+1, position.y)
+					};
+				}
+				else
+				{
+					currentPlankPositions = new List<Vector3Int>()
+					{
+						new Vector3Int(position.x, position.y-1),
+						position,
+						new Vector3Int(position.x, position.y+1)
+					};
+				}
+				
+				// If a collider or nonplacement tile exists at any plank position, we do not place the plank
+				foreach (Vector3Int plankPos in currentPlankPositions) 
+				{
+					if (ColliderMap.GetColliderType(plankPos) != Tile.ColliderType.None || plankPositions.Contains(plankPos) || NonPlacementMap.GetTile(plankPos) != null) 
+					{
+						canBePlaced = false;
+					}
+				}
+				
+				// If we place the plank, we add the position to current plank positions
+				if (canBePlaced) 
+				{
+					plankPositions.AddRange(currentPlankPositions);
+					placedPlanks++;
+				}
 			}
 		}
 	}
