@@ -91,7 +91,7 @@ public class ScoreManagerExpanded : MonoBehaviour
             this.VScoreTxt.text = "Score:\n" + score.ToString("D4");
 
             //update victory menu score breakdown
-            this.ArtifactsRetrievedTxt.text = "Artifacts Retrieved: x" + artifactsGrabbed.ToString();
+            this.ArtifactsRetrievedTxt.text = "Artifacts Retrieved: x" + artifactsGrabbed.ToString() + "  (x40)";
             this.TimeBonusTxt.text = "Time Multiplier: x" + GetMultiplier((int)Timer.instance.elapsedTime).ToString();
             this.TotalScoreTxt.text = "Total Score: " + score.ToString("D4");
         }
