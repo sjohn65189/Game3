@@ -10,6 +10,7 @@ public class ScoreManagerExpanded : MonoBehaviour
     public static ScoreManagerExpanded instance;
 
     public int RELICPOINTVALUE = 40;
+    public int artifactsGrabbed = 0;
 
     //hud
     [SerializeField] public TextMeshProUGUI HUDScoreTxt;
@@ -90,8 +91,8 @@ public class ScoreManagerExpanded : MonoBehaviour
             this.VScoreTxt.text = "Score:\n" + score.ToString("D4");
 
             //update victory menu score breakdown
-            this.ArtifactsRetrievedTxt.text = "Artifacts Retrieved: " + GetArtifactsGrabbed().ToString("D4");
-            this.TimeBonusTxt.text = "Time Bonus: " + GetMultiplier((int)Timer.instance.elapsedTime).ToString();
+            this.ArtifactsRetrievedTxt.text = "Artifacts Retrieved: x" + artifactsGrabbed.ToString();
+            this.TimeBonusTxt.text = "Time Multiplier: x" + GetMultiplier((int)Timer.instance.elapsedTime).ToString();
             this.TotalScoreTxt.text = "Total Score: " + score.ToString("D4");
         }
     }
@@ -124,13 +125,6 @@ public class ScoreManagerExpanded : MonoBehaviour
         HS.SubmitHighScore(this, playerNameTxt.text, this.score);
     }
 
-    public int GetArtifactsGrabbed()
-    {
-        int artifactsAmt = 0;
-
-        return artifactsAmt;
-    }
-
     public float GetMultiplier(int time)
     {
         float multiplier = 1;
@@ -145,5 +139,10 @@ public class ScoreManagerExpanded : MonoBehaviour
         }
 
         return multiplier;
+    }
+
+     public void ArtifactGrabbed()
+    {
+        artifactsGrabbed++;
     }
 }

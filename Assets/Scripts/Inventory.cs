@@ -82,6 +82,9 @@ public class Inventory : MonoBehaviour
                 // Add to score for picking up relic
                 ScoreManagerExpanded.instance.GetRelic();
 
+                // Add to the artifacts grabbed count
+                ScoreManagerExpanded.instance.ArtifactGrabbed();
+
                 // Show floating text
                 if (FloatingTextPrefab)
                 {

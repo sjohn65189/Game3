@@ -41352,7 +41352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 156.2, y: 260.8}
+  m_AnchoredPosition: {x: 55.9, y: 260.8}
   m_SizeDelta: {x: 407, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1290547196
@@ -41375,7 +41375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time Bonus: '
+  m_text: 'Time Multiplier: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b08f1368d9557c647b940a9629253b1d, type: 2}
   m_sharedMaterial: {fileID: -5281800087879263736, guid: b08f1368d9557c647b940a9629253b1d,
@@ -46661,6 +46661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RELICPOINTVALUE: 40
+  artifactsGrabbed: 0
   HUDScoreTxt: {fileID: 1753990579}
   HUDHighscoreTxt: {fileID: 1768442268}
   VictoryPanel: {fileID: 1803041040}
