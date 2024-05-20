@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 7168075863972458526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press G
+  m_text: Press G to pick up item
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b08f1368d9557c647b940a9629253b1d, type: 2}
   m_sharedMaterial: {fileID: -5281800087879263736, guid: b08f1368d9557c647b940a9629253b1d,
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 3.474946, w: 0}
+  m_margin: {x: 0, y: 0, z: 3.474946, w: -5.725456}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0

@@ -32,6 +32,8 @@ public class Inventory : MonoBehaviour
     private float powerUpDuration = 10f; //duration of powerup
     public bool isPowerUpActive = false; //flag to track if active
     private float powerUpTimer = 0f; //timer
+
+    public GameObject pickUpMessage;
     void Start()
     {
         // Find the PlayerController and Yeti components
@@ -46,6 +48,7 @@ public class Inventory : MonoBehaviour
 
         //Reset items list when the game is reset
         ResetCollectedItems();
+        pickUpMessage.SetActive(false);
     }
 
     private void OnDisable()
@@ -163,4 +166,20 @@ public class Inventory : MonoBehaviour
     {
         Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Player"))
+		{
+			pickUpMessage.SetActive(true);
+		}
+	}
+
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Player"))
+		{
+			pickUpMessage.SetActive(false);
+		}
+	}
 }

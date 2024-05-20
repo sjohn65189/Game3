@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class BridgeSystem : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class BridgeSystem : MonoBehaviour
 	private Rigidbody2D plankRigidbody; // Reference to the Rigidbody2D component
 	private int SFXEnabled;
 
+	public GameObject pickUpMessage;
 	private void Start()
 	{
 		SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
@@ -45,6 +47,8 @@ public class BridgeSystem : MonoBehaviour
 
 		//find navMeshSurface in scene
 		navMeshSurface = FindObjectOfType<NavMeshSurface>();
+
+		pickUpMessage.SetActive(false);
 	}
 	
 	private void OnDisable()
@@ -69,7 +73,7 @@ public class BridgeSystem : MonoBehaviour
 			MoveToTargetTile();
 			hasCollided=false;
 			counted = true;
-			
+
 			switch (gameObject.tag) 
 			{
 				case "area1":
@@ -100,6 +104,7 @@ public class BridgeSystem : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Player") && !hasCollided)
 		{
+			pickUpMessage.SetActive(true);
 			hasCollided=true;
 		}
 	}
@@ -108,6 +113,7 @@ public class BridgeSystem : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
+			pickUpMessage.SetActive(false);
 			hasCollided = false;
 		}
 	}
