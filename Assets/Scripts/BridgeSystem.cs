@@ -22,6 +22,7 @@ public class BridgeSystem : MonoBehaviour
 
 	private TextMeshProUGUI plankCounter1;
 	private TextMeshProUGUI plankCounter2;
+	private TextMeshProUGUI plankCounter3;
 	private bool hasCollided = false;
 	private bool counted = false;
 	private NavMeshSurface navMeshSurface; //reference to the NavMeshSurface component
@@ -37,6 +38,7 @@ public class BridgeSystem : MonoBehaviour
 		// Get counter objects
 		plankCounter1 = GameObject.FindGameObjectWithTag("PlankCounter1").GetComponent<TextMeshProUGUI>();
 		plankCounter2 = GameObject.FindGameObjectWithTag("PlankCounter2").GetComponent<TextMeshProUGUI>();
+		plankCounter3 = GameObject.FindGameObjectWithTag("PlankCounter3").GetComponent<TextMeshProUGUI>();
 		
 		// Get the Rigidbody2D component attached to this GameObject
 		plankRigidbody = GetComponent<Rigidbody2D>();
@@ -70,13 +72,17 @@ public class BridgeSystem : MonoBehaviour
 			
 			switch (gameObject.tag) 
 			{
-				case "bridge1":
+				case "area1":
 					int currentCount1 = int.Parse(plankCounter1.text);
 					plankCounter1.text = (currentCount1 += 1).ToString();
 					break;
-				case "bridge2":
+				case "area2":
 					int currentCount2 = int.Parse(plankCounter2.text);
 					plankCounter2.text = (currentCount2 += 1).ToString();
+					break;
+				case "area3":
+					int currentCount3 = int.Parse(plankCounter3.text);
+					plankCounter3.text = (currentCount3 += 1).ToString();
 					break;
 			}
 			

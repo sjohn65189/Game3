@@ -32,8 +32,6 @@ public class GameManager : MonoBehaviour
 	public AudioSource Main_Music;
 	public AudioSource Wind_Sound;
 
-	private Yeti yetiScript;
-
 	void Start()
 	{
 		BuildArea1();
@@ -61,11 +59,6 @@ public class GameManager : MonoBehaviour
 	void Awake() 
 	{
 		YetiStart(); // This delays the yeti chase
-	}
-	
-	void Update()
-	{
-  
 	}
 	
 	// return to the Main menu
@@ -123,6 +116,7 @@ public class GameManager : MonoBehaviour
 
 	}
 	
+	// Reset Yeti and give 5 second delay
 	public IEnumerator DelayChase()
 	{
 		Yeti.SetActive(false);

@@ -12,6 +12,10 @@ TagManager:
   - bridge2
   - Artifact
   - WanderReset
+  - PlankCounter3
+  - area1
+  - area2
+  - area3
   layers:
   - Default
   - TransparentFX
