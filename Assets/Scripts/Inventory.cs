@@ -88,7 +88,7 @@ public class Inventory : MonoBehaviour
                 // Show floating text
                 if (FloatingTextPrefab)
                 {
-                    //ShowFloatingText();
+                    ShowFloatingText();
                 }
             }
         }

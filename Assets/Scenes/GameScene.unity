@@ -594,7 +594,8 @@ MonoBehaviour:
   - {fileID: 0}
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
-  FloatingTextPrefab: {fileID: 0}
+  FloatingTextPrefab: {fileID: 5825115119506770175, guid: 8fde6c68b1bf7ef4eb9e25e6cb7f1751,
+    type: 3}
   itemPower: 0
   yeti: {fileID: 973305581}
   isPowerUpActive: 0
@@ -1087,7 +1088,8 @@ MonoBehaviour:
   - {fileID: 0}
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
-  FloatingTextPrefab: {fileID: 0}
+  FloatingTextPrefab: {fileID: 5825115119506770175, guid: 8fde6c68b1bf7ef4eb9e25e6cb7f1751,
+    type: 3}
   itemPower: 1
   yeti: {fileID: 973305581}
   isPowerUpActive: 0
@@ -1371,7 +1373,8 @@ MonoBehaviour:
   - {fileID: 0}
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
-  FloatingTextPrefab: {fileID: 0}
+  FloatingTextPrefab: {fileID: 5825115119506770175, guid: 8fde6c68b1bf7ef4eb9e25e6cb7f1751,
+    type: 3}
   itemPower: 1
   yeti: {fileID: 973305581}
   isPowerUpActive: 0
@@ -2695,7 +2698,8 @@ MonoBehaviour:
   - {fileID: 0}
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
-  FloatingTextPrefab: {fileID: 0}
+  FloatingTextPrefab: {fileID: 5825115119506770175, guid: 8fde6c68b1bf7ef4eb9e25e6cb7f1751,
+    type: 3}
   itemPower: 0
   yeti: {fileID: 973305581}
   isPowerUpActive: 0
@@ -27807,7 +27811,8 @@ MonoBehaviour:
   - {fileID: 0}
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
-  FloatingTextPrefab: {fileID: 0}
+  FloatingTextPrefab: {fileID: 5825115119506770175, guid: 8fde6c68b1bf7ef4eb9e25e6cb7f1751,
+    type: 3}
   itemPower: 0
   yeti: {fileID: 973305581}
   isPowerUpActive: 0
@@ -35443,7 +35448,8 @@ MonoBehaviour:
   - {fileID: 0}
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
-  FloatingTextPrefab: {fileID: 0}
+  FloatingTextPrefab: {fileID: 5825115119506770175, guid: 8fde6c68b1bf7ef4eb9e25e6cb7f1751,
+    type: 3}
   itemPower: 0
   yeti: {fileID: 973305581}
   isPowerUpActive: 0
@@ -44302,7 +44308,8 @@ MonoBehaviour:
   - {fileID: 0}
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
-  FloatingTextPrefab: {fileID: 0}
+  FloatingTextPrefab: {fileID: 5825115119506770175, guid: 8fde6c68b1bf7ef4eb9e25e6cb7f1751,
+    type: 3}
   itemPower: 0
   yeti: {fileID: 973305581}
   isPowerUpActive: 0
