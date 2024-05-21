@@ -481,6 +481,8 @@ MonoBehaviour:
   rotationAngle: 90
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 34816973}
+  requiredPlanksBridge1: 3
+  requiredPlanksBridge2: 7
   pickUpMessage: {fileID: 1927914392}
 --- !u!212 &34816977
 SpriteRenderer:
@@ -25756,6 +25758,8 @@ MonoBehaviour:
   rotationAngle: 90
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 587270659}
+  requiredPlanksBridge1: 3
+  requiredPlanksBridge2: 7
   pickUpMessage: {fileID: 1927914392}
 --- !u!212 &587270663
 SpriteRenderer:
@@ -26595,6 +26599,8 @@ MonoBehaviour:
   rotationAngle: 90
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 703989747}
+  requiredPlanksBridge1: 3
+  requiredPlanksBridge2: 7
   pickUpMessage: {fileID: 1927914392}
 --- !u!212 &703989751
 SpriteRenderer:
@@ -26872,6 +26878,8 @@ MonoBehaviour:
   rotationAngle: 90
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 704108718}
+  requiredPlanksBridge1: 3
+  requiredPlanksBridge2: 7
   pickUpMessage: {fileID: 1927914392}
 --- !u!212 &704108722
 SpriteRenderer:
@@ -28782,6 +28790,8 @@ MonoBehaviour:
   rotationAngle: 90
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 807898094}
+  requiredPlanksBridge1: 3
+  requiredPlanksBridge2: 7
   pickUpMessage: {fileID: 1927914392}
 --- !u!212 &807898098
 SpriteRenderer:
@@ -33947,6 +33957,8 @@ MonoBehaviour:
   rotationAngle: 90
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 836950082}
+  requiredPlanksBridge1: 3
+  requiredPlanksBridge2: 7
   pickUpMessage: {fileID: 1927914392}
 --- !u!212 &836950086
 SpriteRenderer:
@@ -34128,6 +34140,8 @@ MonoBehaviour:
   rotationAngle: 90
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 852603607}
+  requiredPlanksBridge1: 3
+  requiredPlanksBridge2: 7
   pickUpMessage: {fileID: 1927914392}
 --- !u!212 &852603606
 SpriteRenderer:
@@ -34849,6 +34863,8 @@ MonoBehaviour:
   rotationAngle: 90
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 935584601}
+  requiredPlanksBridge1: 3
+  requiredPlanksBridge2: 7
   pickUpMessage: {fileID: 1927914392}
 --- !u!212 &935584600
 SpriteRenderer:
@@ -42352,6 +42368,7 @@ MonoBehaviour:
   groundOverlayTilemap: {fileID: 346370176}
   colliderTilemap: {fileID: 973619273}
   messageUI: {fileID: 1363348923}
+  isForBridge1: 0
 --- !u!61 &1402040099
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43045,6 +43062,8 @@ MonoBehaviour:
   rotationAngle: 90
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 1463414134}
+  requiredPlanksBridge1: 3
+  requiredPlanksBridge2: 7
   pickUpMessage: {fileID: 1927914392}
 --- !u!212 &1463414133
 SpriteRenderer:
@@ -43687,6 +43706,8 @@ MonoBehaviour:
   rotationAngle: 90
   pickupSound: {fileID: 8300000, guid: c2f276b9a1bfa074a9ba06a2d9db1b18, type: 3}
   audioSource: {fileID: 1590265624}
+  requiredPlanksBridge1: 3
+  requiredPlanksBridge2: 7
   pickUpMessage: {fileID: 1927914392}
 --- !u!212 &1590265628
 SpriteRenderer:
@@ -45034,6 +45055,7 @@ MonoBehaviour:
   groundOverlayTilemap: {fileID: 346370176}
   colliderTilemap: {fileID: 973619273}
   messageUI: {fileID: 1363348923}
+  isForBridge1: 1
 --- !u!61 &1710822230
 BoxCollider2D:
   m_ObjectHideFlags: 0

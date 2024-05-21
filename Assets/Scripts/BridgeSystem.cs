@@ -20,8 +20,12 @@ public class BridgeSystem : MonoBehaviour
 	public AudioClip pickupSound; // Add this field to hold the pickup sound
 	public AudioSource audioSource; // Add this field to reference the AudioSource component
 
+    public int requiredPlanksBridge1 = 3;
+    public int requiredPlanksBridge2 = 7;
 
-	private TextMeshProUGUI plankCounter1;
+
+
+    private TextMeshProUGUI plankCounter1;
 	private TextMeshProUGUI plankCounter2;
 	private TextMeshProUGUI plankCounter3;
 	private bool hasCollided = false;
@@ -133,4 +137,18 @@ public class BridgeSystem : MonoBehaviour
 			colliderTilemap.SetTile(new Vector3Int(targetTilePosition.x, targetTilePosition.y-i, targetTilePosition.z), null);
 		}
 	}
+    // Methods to check if each bridge is complete
+    public bool IsBridge1Complete()
+    {
+        int currentCount1 = int.Parse(plankCounter1.text);
+        return currentCount1 == requiredPlanksBridge1;
+    }
+
+    public bool IsBridge2Complete()
+    {
+        int currentCount2 = int.Parse(plankCounter2.text);
+        int currentCount3 = int.Parse(plankCounter3.text);
+        return (currentCount2 + currentCount3) == requiredPlanksBridge2;
+    }
+
 }
