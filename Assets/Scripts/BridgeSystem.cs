@@ -111,7 +111,7 @@ public class BridgeSystem : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.gameObject.CompareTag("Player") && !hasCollided)
+		if (collision.gameObject.CompareTag("Player") && !hasCollided && !counted)
 		{
 			pickUpMessage.SetActive(true);
 			hasCollided=true;
