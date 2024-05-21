@@ -5,6 +5,7 @@ using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
 using UnityEngine.Windows;
 using UnityEngine.Tilemaps;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class GameManager : MonoBehaviour
 	public GameObject VictoryMenu;
 	public GameObject GameOverMenu;
 	public GameObject pauseMenu;
+	public GameObject VictoryMainMenuButton;
+	public GameObject GameOverMainMenuButton;
+	
 	public bool paused = false;
 	public GameObject Yeti;
 	public PlayerController Player;
@@ -90,10 +94,15 @@ public class GameManager : MonoBehaviour
 		Timer.instance.StopTimer();
 
 		GameOverMenu.SetActive(true);
+		
+		EventSystem.current.SetSelectedGameObject(null);
+		EventSystem.current.SetSelectedGameObject(GameOverMainMenuButton);
+		
 		Player.gameObject.SetActive(false);
 	}
 	public void ResumeButtonClicked()
 	{
+		EventSystem.current.SetSelectedGameObject(null);
 		pauseMenu.SetActive(false);
 		Yeti.SetActive(true);
 		paused = false;
@@ -111,6 +120,10 @@ public class GameManager : MonoBehaviour
 		ScoreManagerExpanded.instance.TimeMultiplier((int)Timer.instance.elapsedTime);
 
 		VictoryMenu.SetActive(true);
+		
+		EventSystem.current.SetSelectedGameObject(null);
+		EventSystem.current.SetSelectedGameObject(VictoryMainMenuButton);
+		
 		Yeti.SetActive(false);
 		Player.gameObject.SetActive(false);
 

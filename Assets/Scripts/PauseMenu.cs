@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PauseMenu : MonoBehaviour
 	public GameManager gameManager;
 	public GameObject GameOver;
 	public GameObject WinScreen;
+	public GameObject ResumeButton;
 
 	private Yeti yetiScript;
 	// Start is called before the first frame update
@@ -36,6 +38,8 @@ public class PauseMenu : MonoBehaviour
 	
 	public void PauseMenuIsToggled()
 	{
+		EventSystem.current.SetSelectedGameObject(null);
+		EventSystem.current.SetSelectedGameObject(ResumeButton);
 		gameManager.paused = true;
 		pauseMenu.SetActive(true);
 		Yeti.SetActive(false);
