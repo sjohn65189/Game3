@@ -150,4 +150,10 @@ public class ScoreManagerExpanded : MonoBehaviour
 	{
 		artifactsGrabbed++;
 	}
+
+	public void Diamond()
+	{
+		this.score += 110;
+
+    }
 }

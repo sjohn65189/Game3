@@ -53705,7 +53705,7 @@ MonoBehaviour:
   - {fileID: 0}
   pickupSound: {fileID: 8300000, guid: e80b06f14dfbde24d8c43e04a9f16368, type: 3}
   audioSource: {fileID: 1009916493}
-  FloatingTextPrefab: {fileID: 5825115119506770175, guid: 8fde6c68b1bf7ef4eb9e25e6cb7f1751,
+  FloatingTextPrefab: {fileID: 7545492767549195568, guid: 52a4902e64608e248aee19e2a1d810a1,
     type: 3}
   itemPower: 0
   yeti: {fileID: 973305581}

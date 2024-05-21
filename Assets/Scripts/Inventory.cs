@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour
         None,
         PlayerSpeedup,
         YetiSlowDown,
+        Diamond
     }
 
     public ItemPower itemPower;
@@ -128,6 +129,11 @@ public class Inventory : MonoBehaviour
                 yeti.AdjustSpeed(3.0f);
                 Debug.Log("Yeti speed decreased!");
                 StartPowerUpTimer();
+                break;
+            case ItemPower.Diamond:
+                //add more points
+                ScoreManagerExpanded.instance.Diamond();
+                Debug.Log("Score increased from diamond");
                 break;
             default:
                 break;
