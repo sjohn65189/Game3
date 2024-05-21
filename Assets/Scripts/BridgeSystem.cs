@@ -33,10 +33,12 @@ public class BridgeSystem : MonoBehaviour
 	private NavMeshSurface navMeshSurface; //reference to the NavMeshSurface component
 	private Rigidbody2D plankRigidbody; // Reference to the Rigidbody2D component
 	private int SFXEnabled;
+	private GameObject placedPlanks;
 
 	public GameObject pickUpMessage;
 	private void Start()
 	{
+		placedPlanks = GameObject.FindGameObjectWithTag("PlacedPlanks");
 		SFXEnabled = PlayerPrefs.GetInt("SFXEnabled", 1);
 		input = new PlayerInputActions();
 		input.Enable();
@@ -53,6 +55,9 @@ public class BridgeSystem : MonoBehaviour
 		navMeshSurface = FindObjectOfType<NavMeshSurface>();
 
 		pickUpMessage.SetActive(false);
+		
+		var targetPlank = placedPlanks.transform.Find(gameObject.name);
+		targetPlank.GetComponent<SpriteRenderer>().enabled = false;
 	}
 	
 	private void OnDisable()
@@ -127,6 +132,9 @@ public class BridgeSystem : MonoBehaviour
 		// Disable sprite
 		GetComponent<SpriteRenderer>().sprite = null;
 		
+		// Enable target plank sprite
+		EnableTargetPlank();
+		
 		// Move the item to the target tile position
 		Vector3 targetWorldPosition = groundTilemap.GetCellCenterWorld(targetTilePosition);
 		transform.position = targetWorldPosition;
@@ -140,6 +148,14 @@ public class BridgeSystem : MonoBehaviour
 			colliderTilemap.SetTile(new Vector3Int(targetTilePosition.x, targetTilePosition.y-i, targetTilePosition.z), null);
 		}
 	}
+	
+	// Enable the sprite of the target plank
+	private void EnableTargetPlank()
+	{
+		var targetPlank = placedPlanks.transform.Find(gameObject.name);
+		targetPlank.GetComponent<SpriteRenderer>().enabled = true;
+	}
+	
 	// Methods to check if each bridge is complete
 	public bool IsBridge1Complete()
 	{

@@ -16,6 +16,7 @@ TagManager:
   - area1
   - area2
   - area3
+  - PlacedPlanks
   layers:
   - Default
   - TransparentFX
