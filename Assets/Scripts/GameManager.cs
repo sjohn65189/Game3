@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
 	
 	public AudioSource Main_Music;
 	public AudioSource Wind_Sound;
+	public AudioSource screamSound;
+	public AudioSource munchSound;
 
 	void Start()
 	{
@@ -144,6 +146,18 @@ public class GameManager : MonoBehaviour
 	public void YetiStart() 
 	{
 		StartCoroutine(DelayChase());
+	}
+	
+	public void PlayCatchSounds() 
+	{
+		StartCoroutine(CatchPlayerSounds());
+	}
+	
+	IEnumerator CatchPlayerSounds()
+	{
+		munchSound.Play();
+		yield return new WaitForSeconds(0.5f);
+		screamSound.Play();
 	}
 	
 	// Below contains the code for building each area

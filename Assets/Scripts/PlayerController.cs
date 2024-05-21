@@ -197,11 +197,14 @@ public class PlayerController : MonoBehaviour
 	
 	public void CatchPlayer() 
 	{
+		if (SFXEnabled == 1) 
+		{
+			gameManager.PlayCatchSounds();
+		}
+		
 		// If health above 0, decrease by 25 otherwise gameover
 		if (playerHealth.Health > 0) 
 		{
-			
-			
 			cameraShaker.intensity = 0f;
 			yetiN.material.SetFloat("_VignettePower", yetiN.maxFloatValue);
 			playerHealth.SetHealth(-25);
