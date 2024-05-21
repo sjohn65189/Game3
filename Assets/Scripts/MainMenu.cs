@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class MainMenu : MonoBehaviour
 	public GameObject TutorialMenu;
 	public TMP_Text MusicButton;
 	public TMP_Text SoundButton;
+	
+	public GameObject StartButton, OptionsButton, QuitButton, BackButton, PlayButton;
 
 	public AudioSource Main_Music;
 	public AudioSource Wind_Sound;
@@ -48,7 +51,9 @@ public class MainMenu : MonoBehaviour
 	public void StartButtonClicked()
 	{
 		StartMenu.SetActive(false);
+		EventSystem.current.SetSelectedGameObject(null);
 		TutorialMenu.SetActive(true);
+		EventSystem.current.SetSelectedGameObject(PlayButton);
 	}
 
 	// Run the game
@@ -62,13 +67,17 @@ public class MainMenu : MonoBehaviour
 	public void OptionsButtonClicked()
 	{
 		StartMenu.SetActive(false);
+		EventSystem.current.SetSelectedGameObject(null);
 		OptionsMenu.SetActive(true);
+		EventSystem.current.SetSelectedGameObject(BackButton);
 	}
 	
 	public void BackButtonClicked() 
 	{
 		StartMenu.SetActive(true);
+		EventSystem.current.SetSelectedGameObject(null);
 		OptionsMenu.SetActive(false);
+		EventSystem.current.SetSelectedGameObject(StartButton);
 	}
 	
 	// Quit the game
