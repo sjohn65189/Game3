@@ -31092,6 +31092,11 @@ PrefabInstance:
       propertyPath: wanderResetRoar
       value: 
       objectReference: {fileID: 973305582}
+    - target: {fileID: 2524783313750665977, guid: ffcd7bd74e55813489953158051c26f0,
+        type: 3}
+      propertyPath: maxRotationAngle
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3819306001637058978, guid: ffcd7bd74e55813489953158051c26f0,
         type: 3}
       propertyPath: m_Speed
