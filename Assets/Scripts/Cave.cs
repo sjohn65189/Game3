@@ -7,6 +7,7 @@ public class Cave : MonoBehaviour
 	public GameObject CaveRoof;
 	public GameObject CaveHidden;
 	public GameObject player;
+	public GameObject SnowParticles;
 	private Collider2D collider;
 	
 	// Start is called before the first frame update
@@ -24,6 +25,7 @@ public class Cave : MonoBehaviour
 			{
 				CaveHidden.SetActive(true);
 				CaveRoof.SetActive(false);
+				SnowParticles.SetActive(false);
 			}
 		}
 		else
@@ -32,6 +34,7 @@ public class Cave : MonoBehaviour
 			{
 				CaveHidden.SetActive(false);
 				CaveRoof.SetActive(true);
+				SnowParticles.SetActive(true);
 			}
 		}
 	}
