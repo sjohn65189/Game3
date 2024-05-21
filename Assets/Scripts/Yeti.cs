@@ -143,10 +143,10 @@ public class Yeti : MonoBehaviour
 			if (raycastHit2D.collider != null)
 			{
 				canSeePlayer = false;
-				float normalizedDistance = Mathf.Clamp01(distanceToPlayer / 5f);
+				float normalizedDistance = Mathf.Clamp01(distanceToPlayer / 7f);
 				float yetiAway = Mathf.Lerp(yetiN.minFloatValue, yetiN.maxFloatValue, normalizedDistance + 0.1f);
 				yetiN.material.SetFloat("_VignettePower", yetiAway);
-				//Debug.Log("Yeti Away:" + yetiAway);
+				Debug.Log("Yeti Away:" + yetiAway);
 				agent.speed = 5.5f;
 				// Collision with snow detected
 				if (isDebug)
@@ -159,9 +159,9 @@ public class Yeti : MonoBehaviour
 				// No collision with snow, update player's last position
 				canSeePlayer = true;
 				agent.speed = 7.5f;
-				float normalizedDistance = Mathf.Clamp01(distanceToPlayer / 5f);
+				float normalizedDistance = Mathf.Clamp01(distanceToPlayer / 7f);
 				float yetiClose = Mathf.Lerp(yetiN.minFloatValue, yetiN.maxFloatValue, normalizedDistance - 0.1f);
-				//Debug.Log("Yeti Close:" + yetiClose);
+				Debug.Log("Yeti Close:" + yetiClose);
 				yetiN.material.SetFloat("_VignettePower", yetiClose);
 				target = playerController.movePoint.transform.position;
 
